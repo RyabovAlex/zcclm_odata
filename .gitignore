@@ -1,4 +1,4 @@
 #Ignore SEGW projects and artifacts
 
-*.iwpr.xml
-*.sicf.xml
+src/*.iwpr.xml
+src/*.sicf.xml
