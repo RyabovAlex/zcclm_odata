@@ -834,7 +834,8 @@ CLASS ZCL_ZCCLM_ODATA_CM_DPC_EXT IMPLEMENTATION.
                                  ( system_role = role extractor_name = 'AGS_CC_OBJ_ENH_EXTRACTOR' )
                                  ( system_role = role extractor_name = 'AGS_CC_OBJ_DELOBJ_EXTRACTOR' )
                                  ( system_role = role extractor_name = 'AGS_CC_OBJ_NAMESPACE_EXTRACTOR' )
-                                 ( system_role = role extractor_name = 'AGS_CC_OBJ_CORE_EXTRACTOR' ) ).
+                                 ( system_role = role extractor_name = 'AGS_CC_OBJ_CORE_EXTRACTOR' )
+                                 (  system_role = role extractor_name = 'AGS_CC_OBJ_TRAN_EXTRACTOR' ) ).
               lt_srtc = VALUE #( ( system_role = role collector_id = 'CUST' )
                                  ( system_role = role collector_id = 'MODS' )
                                  ( system_role = role collector_id = 'ENHS' ) ).
