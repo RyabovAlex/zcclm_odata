@@ -1,6 +1,6 @@
 class ZCL_ZCCLM_ODATA_VL_MPC_EXT definition
   public
-  inheriting from ZCL_ZCCLM_ODATA_VL_01_MPC
+  inheriting from ZCL_ZCCLM_ODATA_VL_MPC
   create public .
 
 public section.

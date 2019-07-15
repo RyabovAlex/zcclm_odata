@@ -24,6 +24,60 @@
      <ENTRY>System Role</ENTRY>
      <LENGTH>132</LENGTH>
     </item>
+    <item>
+     <ID>I</ID>
+     <KEY>003</KEY>
+     <ENTRY>Marked for data collection</ENTRY>
+     <LENGTH>132</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>004</KEY>
+     <ENTRY>Satus (Queued, Running, Idle)</ENTRY>
+     <LENGTH>132</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>005</KEY>
+     <ENTRY>Priority of extractor</ENTRY>
+     <LENGTH>132</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>006</KEY>
+     <ENTRY>Last extractor runtime</ENTRY>
+     <LENGTH>132</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>007</KEY>
+     <ENTRY>Last number of records retrieved by extractor</ENTRY>
+     <LENGTH>132</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>015</KEY>
+     <ENTRY>ISACTIVE</ENTRY>
+     <LENGTH>132</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>016</KEY>
+     <ENTRY>DELTA</ENTRY>
+     <LENGTH>132</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>017</KEY>
+     <ENTRY>RUNTIME</ENTRY>
+     <LENGTH>132</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>018</KEY>
+     <ENTRY>RECORDS</ENTRY>
+     <LENGTH>132</LENGTH>
+    </item>
    </TPOOL>
    <DESCRIPTIONS>
     <SEOCOMPOTX>
@@ -73,6 +127,18 @@
      <CMPNAME>DEFINE_DSO_YEAR</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>DEFINE_DSO_YEAR</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_ZCCLM_ODATA_UG_MPC</CLSNAME>
+     <CMPNAME>DEFINE_EXTRACTOR</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>DEFINE_EXTRACTOR</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_ZCCLM_ODATA_UG_MPC</CLSNAME>
+     <CMPNAME>DEFINE_EXTRACTOR_LOG</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>DEFINE_EXTRACTOR_LOG</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>ZCL_ZCCLM_ODATA_UG_MPC</CLSNAME>

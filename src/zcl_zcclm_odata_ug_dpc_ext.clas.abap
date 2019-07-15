@@ -1531,15 +1531,57 @@ CLASS ZCL_ZCCLM_ODATA_UG_DPC_EXT IMPLEMENTATION.
 
     SELECT SYSTEM_ID, SYSTEM_ROLE
     FROM agsccl_system
-    INTO @DATA(ls_sys).
+    INTO TABLE @DATA(lt_sys).
+
+    SELECT * FROM ags_cc_custom INTO TABLE @DATA(lt_cc_custom).
+
+    SELECT parameter_key, parameter_value from AGS_UPL_SETTING INTO TABLE @DATA(lt_ags_upl_setting).
 
 
 
-    es_entityset-id = ls_sys-system_id.
-    es_entityset-role = ls_sys-system_role.
+    LOOP AT lt_sys INTO DATA(ls_sys).
+      CLEAR es_entityset.
+      es_entityset-id = ls_sys-system_id.
+      es_entityset-role = ls_sys-system_role.
 
-    APPEND es_entityset to et_entityset.
-    ENDSELECT.
+      SELECT single deletor_id FROM e2e_bi_delete INTO @DATA(id) WHERE infoobject = '0SMD_LSID' AND low = @ls_sys-system_id.
+
+
+      SELECT target_cube, low FROM e2e_bi_delete INTO TABLE @DATA(lt_hk_conf) WHERE deletor_id = @id.
+
+      READ TABLE lt_hk_conf INTO DATA(ls_sys_hk_1) WITH KEY target_cube = '0SM_UPLDD'.
+      READ TABLE lt_hk_conf INTO DATA(ls_sys_hk_2) WITH KEY target_cube = '0SM_UPL_W'.
+      READ TABLE lt_hk_conf INTO DATA(ls_sys_hk_3) WITH KEY target_cube = '0SM_UPL_M'.
+      READ TABLE lt_hk_conf INTO DATA(ls_sys_hk_4) WITH KEY target_cube = '0SM_UPL_Y'.
+
+      IF ls_sys_hk_1-low IS NOT INITIAL AND
+         ls_sys_hk_2-low IS NOT INITIAL AND
+         ls_sys_hk_3-low IS NOT INITIAL AND
+         ls_sys_hk_4-low IS NOT INITIAL.
+          es_entityset-housekeeping = 'X'.
+      ELSE.
+        es_entityset-housekeeping = ' '.
+      ENDIF.
+
+      SELECT PARAMETER_VALUE FROM AGS_UPL_SETTING INTO @DATA(lv_w_a) WHERE system_id = @ls_sys-system_id AND
+                                                                           parameter_key = 'UPL_WEEK_ACTIVE'.
+      ENDSELECT.
+      SELECT PARAMETER_VALUE FROM AGS_UPL_SETTING INTO @DATA(lv_m_a) WHERE system_id = @ls_sys-system_id AND
+                                                                           parameter_key = 'UPL_MONTH_ACTIVE'.
+      ENDSELECT.
+      SELECT PARAMETER_VALUE FROM AGS_UPL_SETTING INTO @DATA(lv_y_a) WHERE system_id = @ls_sys-system_id AND
+                                                                           parameter_key = 'UPL_YEAR_ACTIVE'.
+      ENDSELECT.
+
+      IF lv_w_a IS NOT INITIAL AND
+         lv_m_a IS NOT INITIAL AND
+         lv_y_a IS NOT INITIAL.
+          es_entityset-aggregation = 'X'.
+      ELSE.
+          es_entityset-aggregation = ' '.
+      ENDIF.
+      APPEND es_entityset to et_entityset.
+    ENDLOOP.
 
   endmethod.
 ENDCLASS.

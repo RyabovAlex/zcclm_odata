@@ -32,46 +32,6 @@ protected section.
 
   data mo_injection type ref to /IWBEP/IF_SB_GEN_DPC_INJECTION .
 
-  methods LANDSCAPE_STATUS_CREATE_ENTITY
-    importing
-      !IV_ENTITY_NAME type STRING
-      !IV_ENTITY_SET_NAME type STRING
-      !IV_SOURCE_NAME type STRING
-      !IT_KEY_TAB type /IWBEP/T_MGW_NAME_VALUE_PAIR
-      !IO_TECH_REQUEST_CONTEXT type ref to /IWBEP/IF_MGW_REQ_ENTITY_C optional
-      !IT_NAVIGATION_PATH type /IWBEP/T_MGW_NAVIGATION_PATH
-      !IO_DATA_PROVIDER type ref to /IWBEP/IF_MGW_ENTRY_PROVIDER optional
-    exporting
-      !ER_ENTITY type ZCL_ZCCLM_ODATA_CM_MPC=>TS_LANDSCAPE_STATUS
-    raising
-      /IWBEP/CX_MGW_BUSI_EXCEPTION
-      /IWBEP/CX_MGW_TECH_EXCEPTION .
-  methods LANDSCAPE_STATUS_DELETE_ENTITY
-    importing
-      !IV_ENTITY_NAME type STRING
-      !IV_ENTITY_SET_NAME type STRING
-      !IV_SOURCE_NAME type STRING
-      !IT_KEY_TAB type /IWBEP/T_MGW_NAME_VALUE_PAIR
-      !IO_TECH_REQUEST_CONTEXT type ref to /IWBEP/IF_MGW_REQ_ENTITY_D optional
-      !IT_NAVIGATION_PATH type /IWBEP/T_MGW_NAVIGATION_PATH
-    raising
-      /IWBEP/CX_MGW_BUSI_EXCEPTION
-      /IWBEP/CX_MGW_TECH_EXCEPTION .
-  methods LANDSCAPE_STATUS_GET_ENTITY
-    importing
-      !IV_ENTITY_NAME type STRING
-      !IV_ENTITY_SET_NAME type STRING
-      !IV_SOURCE_NAME type STRING
-      !IT_KEY_TAB type /IWBEP/T_MGW_NAME_VALUE_PAIR
-      !IO_REQUEST_OBJECT type ref to /IWBEP/IF_MGW_REQ_ENTITY optional
-      !IO_TECH_REQUEST_CONTEXT type ref to /IWBEP/IF_MGW_REQ_ENTITY optional
-      !IT_NAVIGATION_PATH type /IWBEP/T_MGW_NAVIGATION_PATH
-    exporting
-      !ER_ENTITY type ZCL_ZCCLM_ODATA_CM_MPC=>TS_LANDSCAPE_STATUS
-      !ES_RESPONSE_CONTEXT type /IWBEP/IF_MGW_APPL_SRV_RUNTIME=>TY_S_MGW_RESPONSE_ENTITY_CNTXT
-    raising
-      /IWBEP/CX_MGW_BUSI_EXCEPTION
-      /IWBEP/CX_MGW_TECH_EXCEPTION .
   methods LANDSCAPE_STATUS_GET_ENTITYSET
     importing
       !IV_ENTITY_NAME type STRING
@@ -470,6 +430,79 @@ protected section.
     raising
       /IWBEP/CX_MGW_BUSI_EXCEPTION
       /IWBEP/CX_MGW_TECH_EXCEPTION .
+  methods SYSTEM_KPISET_CREATE_ENTITY
+    importing
+      !IV_ENTITY_NAME type STRING
+      !IV_ENTITY_SET_NAME type STRING
+      !IV_SOURCE_NAME type STRING
+      !IT_KEY_TAB type /IWBEP/T_MGW_NAME_VALUE_PAIR
+      !IO_TECH_REQUEST_CONTEXT type ref to /IWBEP/IF_MGW_REQ_ENTITY_C optional
+      !IT_NAVIGATION_PATH type /IWBEP/T_MGW_NAVIGATION_PATH
+      !IO_DATA_PROVIDER type ref to /IWBEP/IF_MGW_ENTRY_PROVIDER optional
+    exporting
+      !ER_ENTITY type ZCL_ZCCLM_ODATA_CM_MPC=>TS_SYSTEM_KPI
+    raising
+      /IWBEP/CX_MGW_BUSI_EXCEPTION
+      /IWBEP/CX_MGW_TECH_EXCEPTION .
+  methods SYSTEM_KPISET_DELETE_ENTITY
+    importing
+      !IV_ENTITY_NAME type STRING
+      !IV_ENTITY_SET_NAME type STRING
+      !IV_SOURCE_NAME type STRING
+      !IT_KEY_TAB type /IWBEP/T_MGW_NAME_VALUE_PAIR
+      !IO_TECH_REQUEST_CONTEXT type ref to /IWBEP/IF_MGW_REQ_ENTITY_D optional
+      !IT_NAVIGATION_PATH type /IWBEP/T_MGW_NAVIGATION_PATH
+    raising
+      /IWBEP/CX_MGW_BUSI_EXCEPTION
+      /IWBEP/CX_MGW_TECH_EXCEPTION .
+  methods SYSTEM_KPISET_GET_ENTITY
+    importing
+      !IV_ENTITY_NAME type STRING
+      !IV_ENTITY_SET_NAME type STRING
+      !IV_SOURCE_NAME type STRING
+      !IT_KEY_TAB type /IWBEP/T_MGW_NAME_VALUE_PAIR
+      !IO_REQUEST_OBJECT type ref to /IWBEP/IF_MGW_REQ_ENTITY optional
+      !IO_TECH_REQUEST_CONTEXT type ref to /IWBEP/IF_MGW_REQ_ENTITY optional
+      !IT_NAVIGATION_PATH type /IWBEP/T_MGW_NAVIGATION_PATH
+    exporting
+      !ER_ENTITY type ZCL_ZCCLM_ODATA_CM_MPC=>TS_SYSTEM_KPI
+      !ES_RESPONSE_CONTEXT type /IWBEP/IF_MGW_APPL_SRV_RUNTIME=>TY_S_MGW_RESPONSE_ENTITY_CNTXT
+    raising
+      /IWBEP/CX_MGW_BUSI_EXCEPTION
+      /IWBEP/CX_MGW_TECH_EXCEPTION .
+  methods SYSTEM_KPISET_GET_ENTITYSET
+    importing
+      !IV_ENTITY_NAME type STRING
+      !IV_ENTITY_SET_NAME type STRING
+      !IV_SOURCE_NAME type STRING
+      !IT_FILTER_SELECT_OPTIONS type /IWBEP/T_MGW_SELECT_OPTION
+      !IS_PAGING type /IWBEP/S_MGW_PAGING
+      !IT_KEY_TAB type /IWBEP/T_MGW_NAME_VALUE_PAIR
+      !IT_NAVIGATION_PATH type /IWBEP/T_MGW_NAVIGATION_PATH
+      !IT_ORDER type /IWBEP/T_MGW_SORTING_ORDER
+      !IV_FILTER_STRING type STRING
+      !IV_SEARCH_STRING type STRING
+      !IO_TECH_REQUEST_CONTEXT type ref to /IWBEP/IF_MGW_REQ_ENTITYSET optional
+    exporting
+      !ET_ENTITYSET type ZCL_ZCCLM_ODATA_CM_MPC=>TT_SYSTEM_KPI
+      !ES_RESPONSE_CONTEXT type /IWBEP/IF_MGW_APPL_SRV_RUNTIME=>TY_S_MGW_RESPONSE_CONTEXT
+    raising
+      /IWBEP/CX_MGW_BUSI_EXCEPTION
+      /IWBEP/CX_MGW_TECH_EXCEPTION .
+  methods SYSTEM_KPISET_UPDATE_ENTITY
+    importing
+      !IV_ENTITY_NAME type STRING
+      !IV_ENTITY_SET_NAME type STRING
+      !IV_SOURCE_NAME type STRING
+      !IT_KEY_TAB type /IWBEP/T_MGW_NAME_VALUE_PAIR
+      !IO_TECH_REQUEST_CONTEXT type ref to /IWBEP/IF_MGW_REQ_ENTITY_U optional
+      !IT_NAVIGATION_PATH type /IWBEP/T_MGW_NAVIGATION_PATH
+      !IO_DATA_PROVIDER type ref to /IWBEP/IF_MGW_ENTRY_PROVIDER optional
+    exporting
+      !ER_ENTITY type ZCL_ZCCLM_ODATA_CM_MPC=>TS_SYSTEM_KPI
+    raising
+      /IWBEP/CX_MGW_BUSI_EXCEPTION
+      /IWBEP/CX_MGW_TECH_EXCEPTION .
   methods SYSTEM_STATUSSET_CREATE_ENTITY
     importing
       !IV_ENTITY_NAME type STRING
@@ -540,6 +573,21 @@ protected section.
       !IO_DATA_PROVIDER type ref to /IWBEP/IF_MGW_ENTRY_PROVIDER optional
     exporting
       !ER_ENTITY type ZCL_ZCCLM_ODATA_CM_MPC=>TS_SYSTEM_STATUS
+    raising
+      /IWBEP/CX_MGW_BUSI_EXCEPTION
+      /IWBEP/CX_MGW_TECH_EXCEPTION .
+  methods LANDSCAPE_STATUS_GET_ENTITY
+    importing
+      !IV_ENTITY_NAME type STRING
+      !IV_ENTITY_SET_NAME type STRING
+      !IV_SOURCE_NAME type STRING
+      !IT_KEY_TAB type /IWBEP/T_MGW_NAME_VALUE_PAIR
+      !IO_REQUEST_OBJECT type ref to /IWBEP/IF_MGW_REQ_ENTITY optional
+      !IO_TECH_REQUEST_CONTEXT type ref to /IWBEP/IF_MGW_REQ_ENTITY optional
+      !IT_NAVIGATION_PATH type /IWBEP/T_MGW_NAVIGATION_PATH
+    exporting
+      !ER_ENTITY type ZCL_ZCCLM_ODATA_CM_MPC=>TS_LANDSCAPE_STATUS
+      !ES_RESPONSE_CONTEXT type /IWBEP/IF_MGW_APPL_SRV_RUNTIME=>TY_S_MGW_RESPONSE_ENTITY_CNTXT
     raising
       /IWBEP/CX_MGW_BUSI_EXCEPTION
       /IWBEP/CX_MGW_TECH_EXCEPTION .
@@ -1054,6 +1102,31 @@ protected section.
     raising
       /IWBEP/CX_MGW_BUSI_EXCEPTION
       /IWBEP/CX_MGW_TECH_EXCEPTION .
+  methods LANDSCAPE_STATUS_CREATE_ENTITY
+    importing
+      !IV_ENTITY_NAME type STRING
+      !IV_ENTITY_SET_NAME type STRING
+      !IV_SOURCE_NAME type STRING
+      !IT_KEY_TAB type /IWBEP/T_MGW_NAME_VALUE_PAIR
+      !IO_TECH_REQUEST_CONTEXT type ref to /IWBEP/IF_MGW_REQ_ENTITY_C optional
+      !IT_NAVIGATION_PATH type /IWBEP/T_MGW_NAVIGATION_PATH
+      !IO_DATA_PROVIDER type ref to /IWBEP/IF_MGW_ENTRY_PROVIDER optional
+    exporting
+      !ER_ENTITY type ZCL_ZCCLM_ODATA_CM_MPC=>TS_LANDSCAPE_STATUS
+    raising
+      /IWBEP/CX_MGW_BUSI_EXCEPTION
+      /IWBEP/CX_MGW_TECH_EXCEPTION .
+  methods LANDSCAPE_STATUS_DELETE_ENTITY
+    importing
+      !IV_ENTITY_NAME type STRING
+      !IV_ENTITY_SET_NAME type STRING
+      !IV_SOURCE_NAME type STRING
+      !IT_KEY_TAB type /IWBEP/T_MGW_NAME_VALUE_PAIR
+      !IO_TECH_REQUEST_CONTEXT type ref to /IWBEP/IF_MGW_REQ_ENTITY_D optional
+      !IT_NAVIGATION_PATH type /IWBEP/T_MGW_NAVIGATION_PATH
+    raising
+      /IWBEP/CX_MGW_BUSI_EXCEPTION
+      /IWBEP/CX_MGW_TECH_EXCEPTION .
 
   methods CHECK_SUBSCRIPTION_AUTHORITY
     redefinition .
@@ -1077,38 +1150,39 @@ CLASS ZCL_ZCCLM_ODATA_CM_DPC IMPLEMENTATION.
   method /IWBEP/IF_MGW_APPL_SRV_RUNTIME~CREATE_ENTITY.
 *&----------------------------------------------------------------------------------------------*
 *&  Include           /IWBEP/DPC_TEMP_CRT_ENTITY_BASE
-*&* This class has been generated on 24.12.2018 09:46:34 in client 001
+*&* This class has been generated on 09.07.2019 11:30:03 in client 001
 *&*
 *&*       WARNING--> NEVER MODIFY THIS CLASS <--WARNING
 *&*   If you want to change the DPC implementation, use the
 *&*   generated methods inside the DPC provider subclass - ZCL_ZCCLM_ODATA_CM_DPC_EXT
 *&-----------------------------------------------------------------------------------------------*
 
- DATA solman_job_runse_create_entity TYPE zcl_zcclm_odata_cm_mpc=>ts_solman_job_run.
- DATA landscape_status_create_entity TYPE zcl_zcclm_odata_cm_mpc=>ts_landscape_status.
- DATA collectorset_create_entity TYPE zcl_zcclm_odata_cm_mpc=>ts_collector.
- DATA bestpracticeset_create_entity TYPE zcl_zcclm_odata_cm_mpc=>ts_bestpractice.
  DATA extractorset_create_entity TYPE zcl_zcclm_odata_cm_mpc=>ts_extractor.
- DATA system_statusset_create_entity TYPE zcl_zcclm_odata_cm_mpc=>ts_system_status.
- DATA solman_noteset_create_entity TYPE zcl_zcclm_odata_cm_mpc=>ts_solman_note.
- DATA analysis_jobset_create_entity TYPE zcl_zcclm_odata_cm_mpc=>ts_analysis_job.
- DATA collector_runset_create_entity TYPE zcl_zcclm_odata_cm_mpc=>ts_collector_run.
- DATA solman_jobset_create_entity TYPE zcl_zcclm_odata_cm_mpc=>ts_solman_job.
- DATA extractor_runset_create_entity TYPE zcl_zcclm_odata_cm_mpc=>ts_extractor_run.
- DATA noteset_create_entity TYPE zcl_zcclm_odata_cm_mpc=>ts_note.
+ DATA collectorset_create_entity TYPE zcl_zcclm_odata_cm_mpc=>ts_collector.
  DATA solman_bwset_create_entity TYPE zcl_zcclm_odata_cm_mpc=>ts_solman_bw.
  DATA analysis_job_run_create_entity TYPE zcl_zcclm_odata_cm_mpc=>ts_analysis_job_run.
+ DATA extractor_runset_create_entity TYPE zcl_zcclm_odata_cm_mpc=>ts_extractor_run.
+ DATA noteset_create_entity TYPE zcl_zcclm_odata_cm_mpc=>ts_note.
+ DATA system_kpiset_create_entity TYPE zcl_zcclm_odata_cm_mpc=>ts_system_kpi.
+ DATA solman_jobset_create_entity TYPE zcl_zcclm_odata_cm_mpc=>ts_solman_job.
+ DATA landscape_status_create_entity TYPE zcl_zcclm_odata_cm_mpc=>ts_landscape_status.
+ DATA collector_runset_create_entity TYPE zcl_zcclm_odata_cm_mpc=>ts_collector_run.
+ DATA solman_noteset_create_entity TYPE zcl_zcclm_odata_cm_mpc=>ts_solman_note.
+ DATA system_statusset_create_entity TYPE zcl_zcclm_odata_cm_mpc=>ts_system_status.
+ DATA bestpracticeset_create_entity TYPE zcl_zcclm_odata_cm_mpc=>ts_bestpractice.
+ DATA solman_job_runse_create_entity TYPE zcl_zcclm_odata_cm_mpc=>ts_solman_job_run.
+ DATA analysis_jobset_create_entity TYPE zcl_zcclm_odata_cm_mpc=>ts_analysis_job.
  DATA lv_entityset_name TYPE string.
 
 lv_entityset_name = io_tech_request_context->get_entity_set_name( ).
 
 CASE lv_entityset_name.
 *-------------------------------------------------------------------------*
-*             EntitySet -  SOLMAN_JOB_RUNSet
+*             EntitySet -  EXTRACTORSet
 *-------------------------------------------------------------------------*
-     WHEN 'SOLMAN_JOB_RUNSet'.
+     WHEN 'EXTRACTORSet'.
 *     Call the entity set generated method
-    solman_job_runse_create_entity(
+    extractorset_create_entity(
          EXPORTING iv_entity_name     = iv_entity_name
                    iv_entity_set_name = iv_entity_set_name
                    iv_source_name     = iv_source_name
@@ -1116,35 +1190,12 @@ CASE lv_entityset_name.
                    it_key_tab         = it_key_tab
                    it_navigation_path = it_navigation_path
                    io_tech_request_context = io_tech_request_context
-       	 IMPORTING er_entity          = solman_job_runse_create_entity
+       	 IMPORTING er_entity          = extractorset_create_entity
     ).
 *     Send specific entity data to the caller interfaces
     copy_data_to_ref(
       EXPORTING
-        is_data = solman_job_runse_create_entity
-      CHANGING
-        cr_data = er_entity
-   ).
-
-*-------------------------------------------------------------------------*
-*             EntitySet -  LANDSCAPE_STATUSSet
-*-------------------------------------------------------------------------*
-     WHEN 'LANDSCAPE_STATUSSet'.
-*     Call the entity set generated method
-    landscape_status_create_entity(
-         EXPORTING iv_entity_name     = iv_entity_name
-                   iv_entity_set_name = iv_entity_set_name
-                   iv_source_name     = iv_source_name
-                   io_data_provider   = io_data_provider
-                   it_key_tab         = it_key_tab
-                   it_navigation_path = it_navigation_path
-                   io_tech_request_context = io_tech_request_context
-       	 IMPORTING er_entity          = landscape_status_create_entity
-    ).
-*     Send specific entity data to the caller interfaces
-    copy_data_to_ref(
-      EXPORTING
-        is_data = landscape_status_create_entity
+        is_data = extractorset_create_entity
       CHANGING
         cr_data = er_entity
    ).
@@ -1173,11 +1224,11 @@ CASE lv_entityset_name.
    ).
 
 *-------------------------------------------------------------------------*
-*             EntitySet -  BESTPRACTICESet
+*             EntitySet -  SOLMAN_BWSet
 *-------------------------------------------------------------------------*
-     WHEN 'BESTPRACTICESet'.
+     WHEN 'SOLMAN_BWSet'.
 *     Call the entity set generated method
-    bestpracticeset_create_entity(
+    solman_bwset_create_entity(
          EXPORTING iv_entity_name     = iv_entity_name
                    iv_entity_set_name = iv_entity_set_name
                    iv_source_name     = iv_source_name
@@ -1185,22 +1236,22 @@ CASE lv_entityset_name.
                    it_key_tab         = it_key_tab
                    it_navigation_path = it_navigation_path
                    io_tech_request_context = io_tech_request_context
-       	 IMPORTING er_entity          = bestpracticeset_create_entity
+       	 IMPORTING er_entity          = solman_bwset_create_entity
     ).
 *     Send specific entity data to the caller interfaces
     copy_data_to_ref(
       EXPORTING
-        is_data = bestpracticeset_create_entity
+        is_data = solman_bwset_create_entity
       CHANGING
         cr_data = er_entity
    ).
 
 *-------------------------------------------------------------------------*
-*             EntitySet -  EXTRACTORSet
+*             EntitySet -  ANALYSIS_JOB_RUNSet
 *-------------------------------------------------------------------------*
-     WHEN 'EXTRACTORSet'.
+     WHEN 'ANALYSIS_JOB_RUNSet'.
 *     Call the entity set generated method
-    extractorset_create_entity(
+    analysis_job_run_create_entity(
          EXPORTING iv_entity_name     = iv_entity_name
                    iv_entity_set_name = iv_entity_set_name
                    iv_source_name     = iv_source_name
@@ -1208,127 +1259,12 @@ CASE lv_entityset_name.
                    it_key_tab         = it_key_tab
                    it_navigation_path = it_navigation_path
                    io_tech_request_context = io_tech_request_context
-       	 IMPORTING er_entity          = extractorset_create_entity
+       	 IMPORTING er_entity          = analysis_job_run_create_entity
     ).
 *     Send specific entity data to the caller interfaces
     copy_data_to_ref(
       EXPORTING
-        is_data = extractorset_create_entity
-      CHANGING
-        cr_data = er_entity
-   ).
-
-*-------------------------------------------------------------------------*
-*             EntitySet -  SYSTEM_STATUSSet
-*-------------------------------------------------------------------------*
-     WHEN 'SYSTEM_STATUSSet'.
-*     Call the entity set generated method
-    system_statusset_create_entity(
-         EXPORTING iv_entity_name     = iv_entity_name
-                   iv_entity_set_name = iv_entity_set_name
-                   iv_source_name     = iv_source_name
-                   io_data_provider   = io_data_provider
-                   it_key_tab         = it_key_tab
-                   it_navigation_path = it_navigation_path
-                   io_tech_request_context = io_tech_request_context
-       	 IMPORTING er_entity          = system_statusset_create_entity
-    ).
-*     Send specific entity data to the caller interfaces
-    copy_data_to_ref(
-      EXPORTING
-        is_data = system_statusset_create_entity
-      CHANGING
-        cr_data = er_entity
-   ).
-
-*-------------------------------------------------------------------------*
-*             EntitySet -  SOLMAN_NOTESet
-*-------------------------------------------------------------------------*
-     WHEN 'SOLMAN_NOTESet'.
-*     Call the entity set generated method
-    solman_noteset_create_entity(
-         EXPORTING iv_entity_name     = iv_entity_name
-                   iv_entity_set_name = iv_entity_set_name
-                   iv_source_name     = iv_source_name
-                   io_data_provider   = io_data_provider
-                   it_key_tab         = it_key_tab
-                   it_navigation_path = it_navigation_path
-                   io_tech_request_context = io_tech_request_context
-       	 IMPORTING er_entity          = solman_noteset_create_entity
-    ).
-*     Send specific entity data to the caller interfaces
-    copy_data_to_ref(
-      EXPORTING
-        is_data = solman_noteset_create_entity
-      CHANGING
-        cr_data = er_entity
-   ).
-
-*-------------------------------------------------------------------------*
-*             EntitySet -  ANALYSIS_JOBSet
-*-------------------------------------------------------------------------*
-     WHEN 'ANALYSIS_JOBSet'.
-*     Call the entity set generated method
-    analysis_jobset_create_entity(
-         EXPORTING iv_entity_name     = iv_entity_name
-                   iv_entity_set_name = iv_entity_set_name
-                   iv_source_name     = iv_source_name
-                   io_data_provider   = io_data_provider
-                   it_key_tab         = it_key_tab
-                   it_navigation_path = it_navigation_path
-                   io_tech_request_context = io_tech_request_context
-       	 IMPORTING er_entity          = analysis_jobset_create_entity
-    ).
-*     Send specific entity data to the caller interfaces
-    copy_data_to_ref(
-      EXPORTING
-        is_data = analysis_jobset_create_entity
-      CHANGING
-        cr_data = er_entity
-   ).
-
-*-------------------------------------------------------------------------*
-*             EntitySet -  COLLECTOR_RUNSet
-*-------------------------------------------------------------------------*
-     WHEN 'COLLECTOR_RUNSet'.
-*     Call the entity set generated method
-    collector_runset_create_entity(
-         EXPORTING iv_entity_name     = iv_entity_name
-                   iv_entity_set_name = iv_entity_set_name
-                   iv_source_name     = iv_source_name
-                   io_data_provider   = io_data_provider
-                   it_key_tab         = it_key_tab
-                   it_navigation_path = it_navigation_path
-                   io_tech_request_context = io_tech_request_context
-       	 IMPORTING er_entity          = collector_runset_create_entity
-    ).
-*     Send specific entity data to the caller interfaces
-    copy_data_to_ref(
-      EXPORTING
-        is_data = collector_runset_create_entity
-      CHANGING
-        cr_data = er_entity
-   ).
-
-*-------------------------------------------------------------------------*
-*             EntitySet -  SOLMAN_JOBSet
-*-------------------------------------------------------------------------*
-     WHEN 'SOLMAN_JOBSet'.
-*     Call the entity set generated method
-    solman_jobset_create_entity(
-         EXPORTING iv_entity_name     = iv_entity_name
-                   iv_entity_set_name = iv_entity_set_name
-                   iv_source_name     = iv_source_name
-                   io_data_provider   = io_data_provider
-                   it_key_tab         = it_key_tab
-                   it_navigation_path = it_navigation_path
-                   io_tech_request_context = io_tech_request_context
-       	 IMPORTING er_entity          = solman_jobset_create_entity
-    ).
-*     Send specific entity data to the caller interfaces
-    copy_data_to_ref(
-      EXPORTING
-        is_data = solman_jobset_create_entity
+        is_data = analysis_job_run_create_entity
       CHANGING
         cr_data = er_entity
    ).
@@ -1380,11 +1316,11 @@ CASE lv_entityset_name.
    ).
 
 *-------------------------------------------------------------------------*
-*             EntitySet -  SOLMAN_BWSet
+*             EntitySet -  SYSTEM_KPISet
 *-------------------------------------------------------------------------*
-     WHEN 'SOLMAN_BWSet'.
+     WHEN 'SYSTEM_KPISet'.
 *     Call the entity set generated method
-    solman_bwset_create_entity(
+    system_kpiset_create_entity(
          EXPORTING iv_entity_name     = iv_entity_name
                    iv_entity_set_name = iv_entity_set_name
                    iv_source_name     = iv_source_name
@@ -1392,22 +1328,22 @@ CASE lv_entityset_name.
                    it_key_tab         = it_key_tab
                    it_navigation_path = it_navigation_path
                    io_tech_request_context = io_tech_request_context
-       	 IMPORTING er_entity          = solman_bwset_create_entity
+       	 IMPORTING er_entity          = system_kpiset_create_entity
     ).
 *     Send specific entity data to the caller interfaces
     copy_data_to_ref(
       EXPORTING
-        is_data = solman_bwset_create_entity
+        is_data = system_kpiset_create_entity
       CHANGING
         cr_data = er_entity
    ).
 
 *-------------------------------------------------------------------------*
-*             EntitySet -  ANALYSIS_JOB_RUNSet
+*             EntitySet -  SOLMAN_JOBSet
 *-------------------------------------------------------------------------*
-     WHEN 'ANALYSIS_JOB_RUNSet'.
+     WHEN 'SOLMAN_JOBSet'.
 *     Call the entity set generated method
-    analysis_job_run_create_entity(
+    solman_jobset_create_entity(
          EXPORTING iv_entity_name     = iv_entity_name
                    iv_entity_set_name = iv_entity_set_name
                    iv_source_name     = iv_source_name
@@ -1415,12 +1351,173 @@ CASE lv_entityset_name.
                    it_key_tab         = it_key_tab
                    it_navigation_path = it_navigation_path
                    io_tech_request_context = io_tech_request_context
-       	 IMPORTING er_entity          = analysis_job_run_create_entity
+       	 IMPORTING er_entity          = solman_jobset_create_entity
     ).
 *     Send specific entity data to the caller interfaces
     copy_data_to_ref(
       EXPORTING
-        is_data = analysis_job_run_create_entity
+        is_data = solman_jobset_create_entity
+      CHANGING
+        cr_data = er_entity
+   ).
+
+*-------------------------------------------------------------------------*
+*             EntitySet -  LANDSCAPE_STATUSSet
+*-------------------------------------------------------------------------*
+     WHEN 'LANDSCAPE_STATUSSet'.
+*     Call the entity set generated method
+    landscape_status_create_entity(
+         EXPORTING iv_entity_name     = iv_entity_name
+                   iv_entity_set_name = iv_entity_set_name
+                   iv_source_name     = iv_source_name
+                   io_data_provider   = io_data_provider
+                   it_key_tab         = it_key_tab
+                   it_navigation_path = it_navigation_path
+                   io_tech_request_context = io_tech_request_context
+       	 IMPORTING er_entity          = landscape_status_create_entity
+    ).
+*     Send specific entity data to the caller interfaces
+    copy_data_to_ref(
+      EXPORTING
+        is_data = landscape_status_create_entity
+      CHANGING
+        cr_data = er_entity
+   ).
+
+*-------------------------------------------------------------------------*
+*             EntitySet -  COLLECTOR_RUNSet
+*-------------------------------------------------------------------------*
+     WHEN 'COLLECTOR_RUNSet'.
+*     Call the entity set generated method
+    collector_runset_create_entity(
+         EXPORTING iv_entity_name     = iv_entity_name
+                   iv_entity_set_name = iv_entity_set_name
+                   iv_source_name     = iv_source_name
+                   io_data_provider   = io_data_provider
+                   it_key_tab         = it_key_tab
+                   it_navigation_path = it_navigation_path
+                   io_tech_request_context = io_tech_request_context
+       	 IMPORTING er_entity          = collector_runset_create_entity
+    ).
+*     Send specific entity data to the caller interfaces
+    copy_data_to_ref(
+      EXPORTING
+        is_data = collector_runset_create_entity
+      CHANGING
+        cr_data = er_entity
+   ).
+
+*-------------------------------------------------------------------------*
+*             EntitySet -  SOLMAN_NOTESet
+*-------------------------------------------------------------------------*
+     WHEN 'SOLMAN_NOTESet'.
+*     Call the entity set generated method
+    solman_noteset_create_entity(
+         EXPORTING iv_entity_name     = iv_entity_name
+                   iv_entity_set_name = iv_entity_set_name
+                   iv_source_name     = iv_source_name
+                   io_data_provider   = io_data_provider
+                   it_key_tab         = it_key_tab
+                   it_navigation_path = it_navigation_path
+                   io_tech_request_context = io_tech_request_context
+       	 IMPORTING er_entity          = solman_noteset_create_entity
+    ).
+*     Send specific entity data to the caller interfaces
+    copy_data_to_ref(
+      EXPORTING
+        is_data = solman_noteset_create_entity
+      CHANGING
+        cr_data = er_entity
+   ).
+
+*-------------------------------------------------------------------------*
+*             EntitySet -  SYSTEM_STATUSSet
+*-------------------------------------------------------------------------*
+     WHEN 'SYSTEM_STATUSSet'.
+*     Call the entity set generated method
+    system_statusset_create_entity(
+         EXPORTING iv_entity_name     = iv_entity_name
+                   iv_entity_set_name = iv_entity_set_name
+                   iv_source_name     = iv_source_name
+                   io_data_provider   = io_data_provider
+                   it_key_tab         = it_key_tab
+                   it_navigation_path = it_navigation_path
+                   io_tech_request_context = io_tech_request_context
+       	 IMPORTING er_entity          = system_statusset_create_entity
+    ).
+*     Send specific entity data to the caller interfaces
+    copy_data_to_ref(
+      EXPORTING
+        is_data = system_statusset_create_entity
+      CHANGING
+        cr_data = er_entity
+   ).
+
+*-------------------------------------------------------------------------*
+*             EntitySet -  BESTPRACTICESet
+*-------------------------------------------------------------------------*
+     WHEN 'BESTPRACTICESet'.
+*     Call the entity set generated method
+    bestpracticeset_create_entity(
+         EXPORTING iv_entity_name     = iv_entity_name
+                   iv_entity_set_name = iv_entity_set_name
+                   iv_source_name     = iv_source_name
+                   io_data_provider   = io_data_provider
+                   it_key_tab         = it_key_tab
+                   it_navigation_path = it_navigation_path
+                   io_tech_request_context = io_tech_request_context
+       	 IMPORTING er_entity          = bestpracticeset_create_entity
+    ).
+*     Send specific entity data to the caller interfaces
+    copy_data_to_ref(
+      EXPORTING
+        is_data = bestpracticeset_create_entity
+      CHANGING
+        cr_data = er_entity
+   ).
+
+*-------------------------------------------------------------------------*
+*             EntitySet -  SOLMAN_JOB_RUNSet
+*-------------------------------------------------------------------------*
+     WHEN 'SOLMAN_JOB_RUNSet'.
+*     Call the entity set generated method
+    solman_job_runse_create_entity(
+         EXPORTING iv_entity_name     = iv_entity_name
+                   iv_entity_set_name = iv_entity_set_name
+                   iv_source_name     = iv_source_name
+                   io_data_provider   = io_data_provider
+                   it_key_tab         = it_key_tab
+                   it_navigation_path = it_navigation_path
+                   io_tech_request_context = io_tech_request_context
+       	 IMPORTING er_entity          = solman_job_runse_create_entity
+    ).
+*     Send specific entity data to the caller interfaces
+    copy_data_to_ref(
+      EXPORTING
+        is_data = solman_job_runse_create_entity
+      CHANGING
+        cr_data = er_entity
+   ).
+
+*-------------------------------------------------------------------------*
+*             EntitySet -  ANALYSIS_JOBSet
+*-------------------------------------------------------------------------*
+     WHEN 'ANALYSIS_JOBSet'.
+*     Call the entity set generated method
+    analysis_jobset_create_entity(
+         EXPORTING iv_entity_name     = iv_entity_name
+                   iv_entity_set_name = iv_entity_set_name
+                   iv_source_name     = iv_source_name
+                   io_data_provider   = io_data_provider
+                   it_key_tab         = it_key_tab
+                   it_navigation_path = it_navigation_path
+                   io_tech_request_context = io_tech_request_context
+       	 IMPORTING er_entity          = analysis_jobset_create_entity
+    ).
+*     Send specific entity data to the caller interfaces
+    copy_data_to_ref(
+      EXPORTING
+        is_data = analysis_jobset_create_entity
       CHANGING
         cr_data = er_entity
    ).
@@ -1444,7 +1541,7 @@ ENDCASE.
   method /IWBEP/IF_MGW_APPL_SRV_RUNTIME~DELETE_ENTITY.
 *&----------------------------------------------------------------------------------------------*
 *&  Include           /IWBEP/DPC_TEMP_DEL_ENTITY_BASE
-*&* This class has been generated on 24.12.2018 09:46:34 in client 001
+*&* This class has been generated on 09.07.2019 11:30:03 in client 001
 *&*
 *&*       WARNING--> NEVER MODIFY THIS CLASS <--WARNING
 *&*   If you want to change the DPC implementation, use the
@@ -1457,53 +1554,11 @@ lv_entityset_name = io_tech_request_context->get_entity_set_name( ).
 
 CASE lv_entityset_name.
 *-------------------------------------------------------------------------*
-*             EntitySet -  ANALYSIS_JOBSet
+*             EntitySet -  COLLECTORSet
 *-------------------------------------------------------------------------*
-      when 'ANALYSIS_JOBSet'.
+      when 'COLLECTORSet'.
 *     Call the entity set generated method
-     analysis_jobset_delete_entity(
-          EXPORTING iv_entity_name     = iv_entity_name
-                    iv_entity_set_name = iv_entity_set_name
-                    iv_source_name     = iv_source_name
-                    it_key_tab         = it_key_tab
-                    it_navigation_path = it_navigation_path
-                    io_tech_request_context = io_tech_request_context
-     ).
-
-*-------------------------------------------------------------------------*
-*             EntitySet -  COLLECTOR_RUNSet
-*-------------------------------------------------------------------------*
-      when 'COLLECTOR_RUNSet'.
-*     Call the entity set generated method
-     collector_runset_delete_entity(
-          EXPORTING iv_entity_name     = iv_entity_name
-                    iv_entity_set_name = iv_entity_set_name
-                    iv_source_name     = iv_source_name
-                    it_key_tab         = it_key_tab
-                    it_navigation_path = it_navigation_path
-                    io_tech_request_context = io_tech_request_context
-     ).
-
-*-------------------------------------------------------------------------*
-*             EntitySet -  SYSTEM_STATUSSet
-*-------------------------------------------------------------------------*
-      when 'SYSTEM_STATUSSet'.
-*     Call the entity set generated method
-     system_statusset_delete_entity(
-          EXPORTING iv_entity_name     = iv_entity_name
-                    iv_entity_set_name = iv_entity_set_name
-                    iv_source_name     = iv_source_name
-                    it_key_tab         = it_key_tab
-                    it_navigation_path = it_navigation_path
-                    io_tech_request_context = io_tech_request_context
-     ).
-
-*-------------------------------------------------------------------------*
-*             EntitySet -  EXTRACTOR_RUNSet
-*-------------------------------------------------------------------------*
-      when 'EXTRACTOR_RUNSet'.
-*     Call the entity set generated method
-     extractor_runset_delete_entity(
+     collectorset_delete_entity(
           EXPORTING iv_entity_name     = iv_entity_name
                     iv_entity_set_name = iv_entity_set_name
                     iv_source_name     = iv_source_name
@@ -1527,53 +1582,11 @@ CASE lv_entityset_name.
      ).
 
 *-------------------------------------------------------------------------*
-*             EntitySet -  COLLECTORSet
-*-------------------------------------------------------------------------*
-      when 'COLLECTORSet'.
-*     Call the entity set generated method
-     collectorset_delete_entity(
-          EXPORTING iv_entity_name     = iv_entity_name
-                    iv_entity_set_name = iv_entity_set_name
-                    iv_source_name     = iv_source_name
-                    it_key_tab         = it_key_tab
-                    it_navigation_path = it_navigation_path
-                    io_tech_request_context = io_tech_request_context
-     ).
-
-*-------------------------------------------------------------------------*
-*             EntitySet -  NOTESet
-*-------------------------------------------------------------------------*
-      when 'NOTESet'.
-*     Call the entity set generated method
-     noteset_delete_entity(
-          EXPORTING iv_entity_name     = iv_entity_name
-                    iv_entity_set_name = iv_entity_set_name
-                    iv_source_name     = iv_source_name
-                    it_key_tab         = it_key_tab
-                    it_navigation_path = it_navigation_path
-                    io_tech_request_context = io_tech_request_context
-     ).
-
-*-------------------------------------------------------------------------*
 *             EntitySet -  LANDSCAPE_STATUSSet
 *-------------------------------------------------------------------------*
       when 'LANDSCAPE_STATUSSet'.
 *     Call the entity set generated method
      landscape_status_delete_entity(
-          EXPORTING iv_entity_name     = iv_entity_name
-                    iv_entity_set_name = iv_entity_set_name
-                    iv_source_name     = iv_source_name
-                    it_key_tab         = it_key_tab
-                    it_navigation_path = it_navigation_path
-                    io_tech_request_context = io_tech_request_context
-     ).
-
-*-------------------------------------------------------------------------*
-*             EntitySet -  SOLMAN_JOB_RUNSet
-*-------------------------------------------------------------------------*
-      when 'SOLMAN_JOB_RUNSet'.
-*     Call the entity set generated method
-     solman_job_runse_delete_entity(
           EXPORTING iv_entity_name     = iv_entity_name
                     iv_entity_set_name = iv_entity_set_name
                     iv_source_name     = iv_source_name
@@ -1597,11 +1610,95 @@ CASE lv_entityset_name.
      ).
 
 *-------------------------------------------------------------------------*
+*             EntitySet -  SYSTEM_STATUSSet
+*-------------------------------------------------------------------------*
+      when 'SYSTEM_STATUSSet'.
+*     Call the entity set generated method
+     system_statusset_delete_entity(
+          EXPORTING iv_entity_name     = iv_entity_name
+                    iv_entity_set_name = iv_entity_set_name
+                    iv_source_name     = iv_source_name
+                    it_key_tab         = it_key_tab
+                    it_navigation_path = it_navigation_path
+                    io_tech_request_context = io_tech_request_context
+     ).
+
+*-------------------------------------------------------------------------*
+*             EntitySet -  SOLMAN_JOB_RUNSet
+*-------------------------------------------------------------------------*
+      when 'SOLMAN_JOB_RUNSet'.
+*     Call the entity set generated method
+     solman_job_runse_delete_entity(
+          EXPORTING iv_entity_name     = iv_entity_name
+                    iv_entity_set_name = iv_entity_set_name
+                    iv_source_name     = iv_source_name
+                    it_key_tab         = it_key_tab
+                    it_navigation_path = it_navigation_path
+                    io_tech_request_context = io_tech_request_context
+     ).
+
+*-------------------------------------------------------------------------*
+*             EntitySet -  BESTPRACTICESet
+*-------------------------------------------------------------------------*
+      when 'BESTPRACTICESet'.
+*     Call the entity set generated method
+     bestpracticeset_delete_entity(
+          EXPORTING iv_entity_name     = iv_entity_name
+                    iv_entity_set_name = iv_entity_set_name
+                    iv_source_name     = iv_source_name
+                    it_key_tab         = it_key_tab
+                    it_navigation_path = it_navigation_path
+                    io_tech_request_context = io_tech_request_context
+     ).
+
+*-------------------------------------------------------------------------*
+*             EntitySet -  ANALYSIS_JOBSet
+*-------------------------------------------------------------------------*
+      when 'ANALYSIS_JOBSet'.
+*     Call the entity set generated method
+     analysis_jobset_delete_entity(
+          EXPORTING iv_entity_name     = iv_entity_name
+                    iv_entity_set_name = iv_entity_set_name
+                    iv_source_name     = iv_source_name
+                    it_key_tab         = it_key_tab
+                    it_navigation_path = it_navigation_path
+                    io_tech_request_context = io_tech_request_context
+     ).
+
+*-------------------------------------------------------------------------*
+*             EntitySet -  NOTESet
+*-------------------------------------------------------------------------*
+      when 'NOTESet'.
+*     Call the entity set generated method
+     noteset_delete_entity(
+          EXPORTING iv_entity_name     = iv_entity_name
+                    iv_entity_set_name = iv_entity_set_name
+                    iv_source_name     = iv_source_name
+                    it_key_tab         = it_key_tab
+                    it_navigation_path = it_navigation_path
+                    io_tech_request_context = io_tech_request_context
+     ).
+
+*-------------------------------------------------------------------------*
 *             EntitySet -  SOLMAN_NOTESet
 *-------------------------------------------------------------------------*
       when 'SOLMAN_NOTESet'.
 *     Call the entity set generated method
      solman_noteset_delete_entity(
+          EXPORTING iv_entity_name     = iv_entity_name
+                    iv_entity_set_name = iv_entity_set_name
+                    iv_source_name     = iv_source_name
+                    it_key_tab         = it_key_tab
+                    it_navigation_path = it_navigation_path
+                    io_tech_request_context = io_tech_request_context
+     ).
+
+*-------------------------------------------------------------------------*
+*             EntitySet -  COLLECTOR_RUNSet
+*-------------------------------------------------------------------------*
+      when 'COLLECTOR_RUNSet'.
+*     Call the entity set generated method
+     collector_runset_delete_entity(
           EXPORTING iv_entity_name     = iv_entity_name
                     iv_entity_set_name = iv_entity_set_name
                     iv_source_name     = iv_source_name
@@ -1639,11 +1736,25 @@ CASE lv_entityset_name.
      ).
 
 *-------------------------------------------------------------------------*
-*             EntitySet -  BESTPRACTICESet
+*             EntitySet -  SYSTEM_KPISet
 *-------------------------------------------------------------------------*
-      when 'BESTPRACTICESet'.
+      when 'SYSTEM_KPISet'.
 *     Call the entity set generated method
-     bestpracticeset_delete_entity(
+     system_kpiset_delete_entity(
+          EXPORTING iv_entity_name     = iv_entity_name
+                    iv_entity_set_name = iv_entity_set_name
+                    iv_source_name     = iv_source_name
+                    it_key_tab         = it_key_tab
+                    it_navigation_path = it_navigation_path
+                    io_tech_request_context = io_tech_request_context
+     ).
+
+*-------------------------------------------------------------------------*
+*             EntitySet -  EXTRACTOR_RUNSet
+*-------------------------------------------------------------------------*
+      when 'EXTRACTOR_RUNSet'.
+*     Call the entity set generated method
+     extractor_runset_delete_entity(
           EXPORTING iv_entity_name     = iv_entity_name
                     iv_entity_set_name = iv_entity_set_name
                     iv_source_name     = iv_source_name
@@ -1668,27 +1779,28 @@ CASE lv_entityset_name.
   method /IWBEP/IF_MGW_APPL_SRV_RUNTIME~GET_ENTITY.
 *&-----------------------------------------------------------------------------------------------*
 *&  Include           /IWBEP/DPC_TEMP_GETENTITY_BASE
-*&* This class has been generated  on 24.12.2018 09:46:34 in client 001
+*&* This class has been generated  on 09.07.2019 11:30:03 in client 001
 *&*
 *&*       WARNING--> NEVER MODIFY THIS CLASS <--WARNING
 *&*   If you want to change the DPC implementation, use the
 *&*   generated methods inside the DPC provider subclass - ZCL_ZCCLM_ODATA_CM_DPC_EXT
 *&-----------------------------------------------------------------------------------------------*
 
- DATA solman_jobset_get_entity TYPE zcl_zcclm_odata_cm_mpc=>ts_solman_job.
- DATA extractor_runset_get_entity TYPE zcl_zcclm_odata_cm_mpc=>ts_extractor_run.
- DATA noteset_get_entity TYPE zcl_zcclm_odata_cm_mpc=>ts_note.
- DATA analysis_job_run_get_entity TYPE zcl_zcclm_odata_cm_mpc=>ts_analysis_job_run.
- DATA collector_runset_get_entity TYPE zcl_zcclm_odata_cm_mpc=>ts_collector_run.
- DATA solman_bwset_get_entity TYPE zcl_zcclm_odata_cm_mpc=>ts_solman_bw.
- DATA solman_noteset_get_entity TYPE zcl_zcclm_odata_cm_mpc=>ts_solman_note.
- DATA analysis_jobset_get_entity TYPE zcl_zcclm_odata_cm_mpc=>ts_analysis_job.
- DATA system_statusset_get_entity TYPE zcl_zcclm_odata_cm_mpc=>ts_system_status.
- DATA bestpracticeset_get_entity TYPE zcl_zcclm_odata_cm_mpc=>ts_bestpractice.
- DATA extractorset_get_entity TYPE zcl_zcclm_odata_cm_mpc=>ts_extractor.
- DATA collectorset_get_entity TYPE zcl_zcclm_odata_cm_mpc=>ts_collector.
- DATA solman_job_runse_get_entity TYPE zcl_zcclm_odata_cm_mpc=>ts_solman_job_run.
  DATA landscape_status_get_entity TYPE zcl_zcclm_odata_cm_mpc=>ts_landscape_status.
+ DATA analysis_job_run_get_entity TYPE zcl_zcclm_odata_cm_mpc=>ts_analysis_job_run.
+ DATA system_statusset_get_entity TYPE zcl_zcclm_odata_cm_mpc=>ts_system_status.
+ DATA analysis_jobset_get_entity TYPE zcl_zcclm_odata_cm_mpc=>ts_analysis_job.
+ DATA solman_job_runse_get_entity TYPE zcl_zcclm_odata_cm_mpc=>ts_solman_job_run.
+ DATA system_kpiset_get_entity TYPE zcl_zcclm_odata_cm_mpc=>ts_system_kpi.
+ DATA bestpracticeset_get_entity TYPE zcl_zcclm_odata_cm_mpc=>ts_bestpractice.
+ DATA collector_runset_get_entity TYPE zcl_zcclm_odata_cm_mpc=>ts_collector_run.
+ DATA collectorset_get_entity TYPE zcl_zcclm_odata_cm_mpc=>ts_collector.
+ DATA solman_noteset_get_entity TYPE zcl_zcclm_odata_cm_mpc=>ts_solman_note.
+ DATA extractor_runset_get_entity TYPE zcl_zcclm_odata_cm_mpc=>ts_extractor_run.
+ DATA solman_jobset_get_entity TYPE zcl_zcclm_odata_cm_mpc=>ts_solman_job.
+ DATA solman_bwset_get_entity TYPE zcl_zcclm_odata_cm_mpc=>ts_solman_bw.
+ DATA extractorset_get_entity TYPE zcl_zcclm_odata_cm_mpc=>ts_extractor.
+ DATA noteset_get_entity TYPE zcl_zcclm_odata_cm_mpc=>ts_note.
  DATA lv_entityset_name TYPE string.
  DATA lr_entity TYPE REF TO data.       "#EC NEEDED
 
@@ -1696,82 +1808,26 @@ lv_entityset_name = io_tech_request_context->get_entity_set_name( ).
 
 CASE lv_entityset_name.
 *-------------------------------------------------------------------------*
-*             EntitySet -  SOLMAN_JOBSet
+*             EntitySet -  LANDSCAPE_STATUSSet
 *-------------------------------------------------------------------------*
-      WHEN 'SOLMAN_JOBSet'.
+      WHEN 'LANDSCAPE_STATUSSet'.
 *     Call the entity set generated method
-          solman_jobset_get_entity(
+          landscape_status_get_entity(
                EXPORTING iv_entity_name     = iv_entity_name
                          iv_entity_set_name = iv_entity_set_name
                          iv_source_name     = iv_source_name
                          it_key_tab         = it_key_tab
                          it_navigation_path = it_navigation_path
                          io_tech_request_context = io_tech_request_context
-               IMPORTING er_entity          = solman_jobset_get_entity
+               IMPORTING er_entity          = landscape_status_get_entity
                          es_response_context = es_response_context
           ).
 
-        IF solman_jobset_get_entity IS NOT INITIAL.
+        IF landscape_status_get_entity IS NOT INITIAL.
 *     Send specific entity data to the caller interface
           copy_data_to_ref(
             EXPORTING
-              is_data = solman_jobset_get_entity
-            CHANGING
-              cr_data = er_entity
-          ).
-        ELSE.
-*         In case of initial values - unbind the entity reference
-          er_entity = lr_entity.
-        ENDIF.
-*-------------------------------------------------------------------------*
-*             EntitySet -  EXTRACTOR_RUNSet
-*-------------------------------------------------------------------------*
-      WHEN 'EXTRACTOR_RUNSet'.
-*     Call the entity set generated method
-          extractor_runset_get_entity(
-               EXPORTING iv_entity_name     = iv_entity_name
-                         iv_entity_set_name = iv_entity_set_name
-                         iv_source_name     = iv_source_name
-                         it_key_tab         = it_key_tab
-                         it_navigation_path = it_navigation_path
-                         io_tech_request_context = io_tech_request_context
-               IMPORTING er_entity          = extractor_runset_get_entity
-                         es_response_context = es_response_context
-          ).
-
-        IF extractor_runset_get_entity IS NOT INITIAL.
-*     Send specific entity data to the caller interface
-          copy_data_to_ref(
-            EXPORTING
-              is_data = extractor_runset_get_entity
-            CHANGING
-              cr_data = er_entity
-          ).
-        ELSE.
-*         In case of initial values - unbind the entity reference
-          er_entity = lr_entity.
-        ENDIF.
-*-------------------------------------------------------------------------*
-*             EntitySet -  NOTESet
-*-------------------------------------------------------------------------*
-      WHEN 'NOTESet'.
-*     Call the entity set generated method
-          noteset_get_entity(
-               EXPORTING iv_entity_name     = iv_entity_name
-                         iv_entity_set_name = iv_entity_set_name
-                         iv_source_name     = iv_source_name
-                         it_key_tab         = it_key_tab
-                         it_navigation_path = it_navigation_path
-                         io_tech_request_context = io_tech_request_context
-               IMPORTING er_entity          = noteset_get_entity
-                         es_response_context = es_response_context
-          ).
-
-        IF noteset_get_entity IS NOT INITIAL.
-*     Send specific entity data to the caller interface
-          copy_data_to_ref(
-            EXPORTING
-              is_data = noteset_get_entity
+              is_data = landscape_status_get_entity
             CHANGING
               cr_data = er_entity
           ).
@@ -1808,82 +1864,26 @@ CASE lv_entityset_name.
           er_entity = lr_entity.
         ENDIF.
 *-------------------------------------------------------------------------*
-*             EntitySet -  COLLECTOR_RUNSet
+*             EntitySet -  SYSTEM_STATUSSet
 *-------------------------------------------------------------------------*
-      WHEN 'COLLECTOR_RUNSet'.
+      WHEN 'SYSTEM_STATUSSet'.
 *     Call the entity set generated method
-          collector_runset_get_entity(
+          system_statusset_get_entity(
                EXPORTING iv_entity_name     = iv_entity_name
                          iv_entity_set_name = iv_entity_set_name
                          iv_source_name     = iv_source_name
                          it_key_tab         = it_key_tab
                          it_navigation_path = it_navigation_path
                          io_tech_request_context = io_tech_request_context
-               IMPORTING er_entity          = collector_runset_get_entity
+               IMPORTING er_entity          = system_statusset_get_entity
                          es_response_context = es_response_context
           ).
 
-        IF collector_runset_get_entity IS NOT INITIAL.
+        IF system_statusset_get_entity IS NOT INITIAL.
 *     Send specific entity data to the caller interface
           copy_data_to_ref(
             EXPORTING
-              is_data = collector_runset_get_entity
-            CHANGING
-              cr_data = er_entity
-          ).
-        ELSE.
-*         In case of initial values - unbind the entity reference
-          er_entity = lr_entity.
-        ENDIF.
-*-------------------------------------------------------------------------*
-*             EntitySet -  SOLMAN_BWSet
-*-------------------------------------------------------------------------*
-      WHEN 'SOLMAN_BWSet'.
-*     Call the entity set generated method
-          solman_bwset_get_entity(
-               EXPORTING iv_entity_name     = iv_entity_name
-                         iv_entity_set_name = iv_entity_set_name
-                         iv_source_name     = iv_source_name
-                         it_key_tab         = it_key_tab
-                         it_navigation_path = it_navigation_path
-                         io_tech_request_context = io_tech_request_context
-               IMPORTING er_entity          = solman_bwset_get_entity
-                         es_response_context = es_response_context
-          ).
-
-        IF solman_bwset_get_entity IS NOT INITIAL.
-*     Send specific entity data to the caller interface
-          copy_data_to_ref(
-            EXPORTING
-              is_data = solman_bwset_get_entity
-            CHANGING
-              cr_data = er_entity
-          ).
-        ELSE.
-*         In case of initial values - unbind the entity reference
-          er_entity = lr_entity.
-        ENDIF.
-*-------------------------------------------------------------------------*
-*             EntitySet -  SOLMAN_NOTESet
-*-------------------------------------------------------------------------*
-      WHEN 'SOLMAN_NOTESet'.
-*     Call the entity set generated method
-          solman_noteset_get_entity(
-               EXPORTING iv_entity_name     = iv_entity_name
-                         iv_entity_set_name = iv_entity_set_name
-                         iv_source_name     = iv_source_name
-                         it_key_tab         = it_key_tab
-                         it_navigation_path = it_navigation_path
-                         io_tech_request_context = io_tech_request_context
-               IMPORTING er_entity          = solman_noteset_get_entity
-                         es_response_context = es_response_context
-          ).
-
-        IF solman_noteset_get_entity IS NOT INITIAL.
-*     Send specific entity data to the caller interface
-          copy_data_to_ref(
-            EXPORTING
-              is_data = solman_noteset_get_entity
+              is_data = system_statusset_get_entity
             CHANGING
               cr_data = er_entity
           ).
@@ -1920,26 +1920,54 @@ CASE lv_entityset_name.
           er_entity = lr_entity.
         ENDIF.
 *-------------------------------------------------------------------------*
-*             EntitySet -  SYSTEM_STATUSSet
+*             EntitySet -  SOLMAN_JOB_RUNSet
 *-------------------------------------------------------------------------*
-      WHEN 'SYSTEM_STATUSSet'.
+      WHEN 'SOLMAN_JOB_RUNSet'.
 *     Call the entity set generated method
-          system_statusset_get_entity(
+          solman_job_runse_get_entity(
                EXPORTING iv_entity_name     = iv_entity_name
                          iv_entity_set_name = iv_entity_set_name
                          iv_source_name     = iv_source_name
                          it_key_tab         = it_key_tab
                          it_navigation_path = it_navigation_path
                          io_tech_request_context = io_tech_request_context
-               IMPORTING er_entity          = system_statusset_get_entity
+               IMPORTING er_entity          = solman_job_runse_get_entity
                          es_response_context = es_response_context
           ).
 
-        IF system_statusset_get_entity IS NOT INITIAL.
+        IF solman_job_runse_get_entity IS NOT INITIAL.
 *     Send specific entity data to the caller interface
           copy_data_to_ref(
             EXPORTING
-              is_data = system_statusset_get_entity
+              is_data = solman_job_runse_get_entity
+            CHANGING
+              cr_data = er_entity
+          ).
+        ELSE.
+*         In case of initial values - unbind the entity reference
+          er_entity = lr_entity.
+        ENDIF.
+*-------------------------------------------------------------------------*
+*             EntitySet -  SYSTEM_KPISet
+*-------------------------------------------------------------------------*
+      WHEN 'SYSTEM_KPISet'.
+*     Call the entity set generated method
+          system_kpiset_get_entity(
+               EXPORTING iv_entity_name     = iv_entity_name
+                         iv_entity_set_name = iv_entity_set_name
+                         iv_source_name     = iv_source_name
+                         it_key_tab         = it_key_tab
+                         it_navigation_path = it_navigation_path
+                         io_tech_request_context = io_tech_request_context
+               IMPORTING er_entity          = system_kpiset_get_entity
+                         es_response_context = es_response_context
+          ).
+
+        IF system_kpiset_get_entity IS NOT INITIAL.
+*     Send specific entity data to the caller interface
+          copy_data_to_ref(
+            EXPORTING
+              is_data = system_kpiset_get_entity
             CHANGING
               cr_data = er_entity
           ).
@@ -1976,26 +2004,26 @@ CASE lv_entityset_name.
           er_entity = lr_entity.
         ENDIF.
 *-------------------------------------------------------------------------*
-*             EntitySet -  EXTRACTORSet
+*             EntitySet -  COLLECTOR_RUNSet
 *-------------------------------------------------------------------------*
-      WHEN 'EXTRACTORSet'.
+      WHEN 'COLLECTOR_RUNSet'.
 *     Call the entity set generated method
-          extractorset_get_entity(
+          collector_runset_get_entity(
                EXPORTING iv_entity_name     = iv_entity_name
                          iv_entity_set_name = iv_entity_set_name
                          iv_source_name     = iv_source_name
                          it_key_tab         = it_key_tab
                          it_navigation_path = it_navigation_path
                          io_tech_request_context = io_tech_request_context
-               IMPORTING er_entity          = extractorset_get_entity
+               IMPORTING er_entity          = collector_runset_get_entity
                          es_response_context = es_response_context
           ).
 
-        IF extractorset_get_entity IS NOT INITIAL.
+        IF collector_runset_get_entity IS NOT INITIAL.
 *     Send specific entity data to the caller interface
           copy_data_to_ref(
             EXPORTING
-              is_data = extractorset_get_entity
+              is_data = collector_runset_get_entity
             CHANGING
               cr_data = er_entity
           ).
@@ -2032,26 +2060,26 @@ CASE lv_entityset_name.
           er_entity = lr_entity.
         ENDIF.
 *-------------------------------------------------------------------------*
-*             EntitySet -  SOLMAN_JOB_RUNSet
+*             EntitySet -  SOLMAN_NOTESet
 *-------------------------------------------------------------------------*
-      WHEN 'SOLMAN_JOB_RUNSet'.
+      WHEN 'SOLMAN_NOTESet'.
 *     Call the entity set generated method
-          solman_job_runse_get_entity(
+          solman_noteset_get_entity(
                EXPORTING iv_entity_name     = iv_entity_name
                          iv_entity_set_name = iv_entity_set_name
                          iv_source_name     = iv_source_name
                          it_key_tab         = it_key_tab
                          it_navigation_path = it_navigation_path
                          io_tech_request_context = io_tech_request_context
-               IMPORTING er_entity          = solman_job_runse_get_entity
+               IMPORTING er_entity          = solman_noteset_get_entity
                          es_response_context = es_response_context
           ).
 
-        IF solman_job_runse_get_entity IS NOT INITIAL.
+        IF solman_noteset_get_entity IS NOT INITIAL.
 *     Send specific entity data to the caller interface
           copy_data_to_ref(
             EXPORTING
-              is_data = solman_job_runse_get_entity
+              is_data = solman_noteset_get_entity
             CHANGING
               cr_data = er_entity
           ).
@@ -2060,26 +2088,138 @@ CASE lv_entityset_name.
           er_entity = lr_entity.
         ENDIF.
 *-------------------------------------------------------------------------*
-*             EntitySet -  LANDSCAPE_STATUSSet
+*             EntitySet -  EXTRACTOR_RUNSet
 *-------------------------------------------------------------------------*
-      WHEN 'LANDSCAPE_STATUSSet'.
+      WHEN 'EXTRACTOR_RUNSet'.
 *     Call the entity set generated method
-          landscape_status_get_entity(
+          extractor_runset_get_entity(
                EXPORTING iv_entity_name     = iv_entity_name
                          iv_entity_set_name = iv_entity_set_name
                          iv_source_name     = iv_source_name
                          it_key_tab         = it_key_tab
                          it_navigation_path = it_navigation_path
                          io_tech_request_context = io_tech_request_context
-               IMPORTING er_entity          = landscape_status_get_entity
+               IMPORTING er_entity          = extractor_runset_get_entity
                          es_response_context = es_response_context
           ).
 
-        IF landscape_status_get_entity IS NOT INITIAL.
+        IF extractor_runset_get_entity IS NOT INITIAL.
 *     Send specific entity data to the caller interface
           copy_data_to_ref(
             EXPORTING
-              is_data = landscape_status_get_entity
+              is_data = extractor_runset_get_entity
+            CHANGING
+              cr_data = er_entity
+          ).
+        ELSE.
+*         In case of initial values - unbind the entity reference
+          er_entity = lr_entity.
+        ENDIF.
+*-------------------------------------------------------------------------*
+*             EntitySet -  SOLMAN_JOBSet
+*-------------------------------------------------------------------------*
+      WHEN 'SOLMAN_JOBSet'.
+*     Call the entity set generated method
+          solman_jobset_get_entity(
+               EXPORTING iv_entity_name     = iv_entity_name
+                         iv_entity_set_name = iv_entity_set_name
+                         iv_source_name     = iv_source_name
+                         it_key_tab         = it_key_tab
+                         it_navigation_path = it_navigation_path
+                         io_tech_request_context = io_tech_request_context
+               IMPORTING er_entity          = solman_jobset_get_entity
+                         es_response_context = es_response_context
+          ).
+
+        IF solman_jobset_get_entity IS NOT INITIAL.
+*     Send specific entity data to the caller interface
+          copy_data_to_ref(
+            EXPORTING
+              is_data = solman_jobset_get_entity
+            CHANGING
+              cr_data = er_entity
+          ).
+        ELSE.
+*         In case of initial values - unbind the entity reference
+          er_entity = lr_entity.
+        ENDIF.
+*-------------------------------------------------------------------------*
+*             EntitySet -  SOLMAN_BWSet
+*-------------------------------------------------------------------------*
+      WHEN 'SOLMAN_BWSet'.
+*     Call the entity set generated method
+          solman_bwset_get_entity(
+               EXPORTING iv_entity_name     = iv_entity_name
+                         iv_entity_set_name = iv_entity_set_name
+                         iv_source_name     = iv_source_name
+                         it_key_tab         = it_key_tab
+                         it_navigation_path = it_navigation_path
+                         io_tech_request_context = io_tech_request_context
+               IMPORTING er_entity          = solman_bwset_get_entity
+                         es_response_context = es_response_context
+          ).
+
+        IF solman_bwset_get_entity IS NOT INITIAL.
+*     Send specific entity data to the caller interface
+          copy_data_to_ref(
+            EXPORTING
+              is_data = solman_bwset_get_entity
+            CHANGING
+              cr_data = er_entity
+          ).
+        ELSE.
+*         In case of initial values - unbind the entity reference
+          er_entity = lr_entity.
+        ENDIF.
+*-------------------------------------------------------------------------*
+*             EntitySet -  EXTRACTORSet
+*-------------------------------------------------------------------------*
+      WHEN 'EXTRACTORSet'.
+*     Call the entity set generated method
+          extractorset_get_entity(
+               EXPORTING iv_entity_name     = iv_entity_name
+                         iv_entity_set_name = iv_entity_set_name
+                         iv_source_name     = iv_source_name
+                         it_key_tab         = it_key_tab
+                         it_navigation_path = it_navigation_path
+                         io_tech_request_context = io_tech_request_context
+               IMPORTING er_entity          = extractorset_get_entity
+                         es_response_context = es_response_context
+          ).
+
+        IF extractorset_get_entity IS NOT INITIAL.
+*     Send specific entity data to the caller interface
+          copy_data_to_ref(
+            EXPORTING
+              is_data = extractorset_get_entity
+            CHANGING
+              cr_data = er_entity
+          ).
+        ELSE.
+*         In case of initial values - unbind the entity reference
+          er_entity = lr_entity.
+        ENDIF.
+*-------------------------------------------------------------------------*
+*             EntitySet -  NOTESet
+*-------------------------------------------------------------------------*
+      WHEN 'NOTESet'.
+*     Call the entity set generated method
+          noteset_get_entity(
+               EXPORTING iv_entity_name     = iv_entity_name
+                         iv_entity_set_name = iv_entity_set_name
+                         iv_source_name     = iv_source_name
+                         it_key_tab         = it_key_tab
+                         it_navigation_path = it_navigation_path
+                         io_tech_request_context = io_tech_request_context
+               IMPORTING er_entity          = noteset_get_entity
+                         es_response_context = es_response_context
+          ).
+
+        IF noteset_get_entity IS NOT INITIAL.
+*     Send specific entity data to the caller interface
+          copy_data_to_ref(
+            EXPORTING
+              is_data = noteset_get_entity
             CHANGING
               cr_data = er_entity
           ).
@@ -2106,37 +2246,38 @@ CASE lv_entityset_name.
   method /IWBEP/IF_MGW_APPL_SRV_RUNTIME~GET_ENTITYSET.
 *&----------------------------------------------------------------------------------------------*
 *&  Include           /IWBEP/DPC_TMP_ENTITYSET_BASE
-*&* This class has been generated on 24.12.2018 09:46:34 in client 001
+*&* This class has been generated on 09.07.2019 11:30:03 in client 001
 *&*
 *&*       WARNING--> NEVER MODIFY THIS CLASS <--WARNING
 *&*   If you want to change the DPC implementation, use the
 *&*   generated methods inside the DPC provider subclass - ZCL_ZCCLM_ODATA_CM_DPC_EXT
 *&-----------------------------------------------------------------------------------------------*
- DATA solman_noteset_get_entityset TYPE zcl_zcclm_odata_cm_mpc=>tt_solman_note.
- DATA collector_runset_get_entityset TYPE zcl_zcclm_odata_cm_mpc=>tt_collector_run.
+ DATA analysis_job_run_get_entityset TYPE zcl_zcclm_odata_cm_mpc=>tt_analysis_job_run.
  DATA analysis_jobset_get_entityset TYPE zcl_zcclm_odata_cm_mpc=>tt_analysis_job.
+ DATA collector_runset_get_entityset TYPE zcl_zcclm_odata_cm_mpc=>tt_collector_run.
  DATA extractor_runset_get_entityset TYPE zcl_zcclm_odata_cm_mpc=>tt_extractor_run.
  DATA system_statusset_get_entityset TYPE zcl_zcclm_odata_cm_mpc=>tt_system_status.
- DATA bestpracticeset_get_entityset TYPE zcl_zcclm_odata_cm_mpc=>tt_bestpractice.
- DATA solman_jobset_get_entityset TYPE zcl_zcclm_odata_cm_mpc=>tt_solman_job.
- DATA extractorset_get_entityset TYPE zcl_zcclm_odata_cm_mpc=>tt_extractor.
  DATA noteset_get_entityset TYPE zcl_zcclm_odata_cm_mpc=>tt_note.
- DATA collectorset_get_entityset TYPE zcl_zcclm_odata_cm_mpc=>tt_collector.
- DATA solman_job_runse_get_entityset TYPE zcl_zcclm_odata_cm_mpc=>tt_solman_job_run.
- DATA analysis_job_run_get_entityset TYPE zcl_zcclm_odata_cm_mpc=>tt_analysis_job_run.
- DATA landscape_status_get_entityset TYPE zcl_zcclm_odata_cm_mpc=>tt_landscape_status.
  DATA solman_bwset_get_entityset TYPE zcl_zcclm_odata_cm_mpc=>tt_solman_bw.
+ DATA solman_jobset_get_entityset TYPE zcl_zcclm_odata_cm_mpc=>tt_solman_job.
+ DATA solman_noteset_get_entityset TYPE zcl_zcclm_odata_cm_mpc=>tt_solman_note.
+ DATA bestpracticeset_get_entityset TYPE zcl_zcclm_odata_cm_mpc=>tt_bestpractice.
+ DATA solman_job_runse_get_entityset TYPE zcl_zcclm_odata_cm_mpc=>tt_solman_job_run.
+ DATA system_kpiset_get_entityset TYPE zcl_zcclm_odata_cm_mpc=>tt_system_kpi.
+ DATA landscape_status_get_entityset TYPE zcl_zcclm_odata_cm_mpc=>tt_landscape_status.
+ DATA collectorset_get_entityset TYPE zcl_zcclm_odata_cm_mpc=>tt_collector.
+ DATA extractorset_get_entityset TYPE zcl_zcclm_odata_cm_mpc=>tt_extractor.
  DATA lv_entityset_name TYPE string.
 
 lv_entityset_name = io_tech_request_context->get_entity_set_name( ).
 
 CASE lv_entityset_name.
 *-------------------------------------------------------------------------*
-*             EntitySet -  SOLMAN_NOTESet
+*             EntitySet -  ANALYSIS_JOB_RUNSet
 *-------------------------------------------------------------------------*
-   WHEN 'SOLMAN_NOTESet'.
+   WHEN 'ANALYSIS_JOB_RUNSet'.
 *     Call the entity set generated method
-      solman_noteset_get_entityset(
+      analysis_job_run_get_entityset(
         EXPORTING
          iv_entity_name = iv_entity_name
          iv_entity_set_name = iv_entity_set_name
@@ -2150,43 +2291,13 @@ CASE lv_entityset_name.
          iv_search_string = iv_search_string
          io_tech_request_context = io_tech_request_context
        IMPORTING
-         et_entityset = solman_noteset_get_entityset
+         et_entityset = analysis_job_run_get_entityset
          es_response_context = es_response_context
        ).
 *     Send specific entity data to the caller interface
       copy_data_to_ref(
         EXPORTING
-          is_data = solman_noteset_get_entityset
-        CHANGING
-          cr_data = er_entityset
-      ).
-
-*-------------------------------------------------------------------------*
-*             EntitySet -  COLLECTOR_RUNSet
-*-------------------------------------------------------------------------*
-   WHEN 'COLLECTOR_RUNSet'.
-*     Call the entity set generated method
-      collector_runset_get_entityset(
-        EXPORTING
-         iv_entity_name = iv_entity_name
-         iv_entity_set_name = iv_entity_set_name
-         iv_source_name = iv_source_name
-         it_filter_select_options = it_filter_select_options
-         it_order = it_order
-         is_paging = is_paging
-         it_navigation_path = it_navigation_path
-         it_key_tab = it_key_tab
-         iv_filter_string = iv_filter_string
-         iv_search_string = iv_search_string
-         io_tech_request_context = io_tech_request_context
-       IMPORTING
-         et_entityset = collector_runset_get_entityset
-         es_response_context = es_response_context
-       ).
-*     Send specific entity data to the caller interface
-      copy_data_to_ref(
-        EXPORTING
-          is_data = collector_runset_get_entityset
+          is_data = analysis_job_run_get_entityset
         CHANGING
           cr_data = er_entityset
       ).
@@ -2217,6 +2328,36 @@ CASE lv_entityset_name.
       copy_data_to_ref(
         EXPORTING
           is_data = analysis_jobset_get_entityset
+        CHANGING
+          cr_data = er_entityset
+      ).
+
+*-------------------------------------------------------------------------*
+*             EntitySet -  COLLECTOR_RUNSet
+*-------------------------------------------------------------------------*
+   WHEN 'COLLECTOR_RUNSet'.
+*     Call the entity set generated method
+      collector_runset_get_entityset(
+        EXPORTING
+         iv_entity_name = iv_entity_name
+         iv_entity_set_name = iv_entity_set_name
+         iv_source_name = iv_source_name
+         it_filter_select_options = it_filter_select_options
+         it_order = it_order
+         is_paging = is_paging
+         it_navigation_path = it_navigation_path
+         it_key_tab = it_key_tab
+         iv_filter_string = iv_filter_string
+         iv_search_string = iv_search_string
+         io_tech_request_context = io_tech_request_context
+       IMPORTING
+         et_entityset = collector_runset_get_entityset
+         es_response_context = es_response_context
+       ).
+*     Send specific entity data to the caller interface
+      copy_data_to_ref(
+        EXPORTING
+          is_data = collector_runset_get_entityset
         CHANGING
           cr_data = er_entityset
       ).
@@ -2282,11 +2423,11 @@ CASE lv_entityset_name.
       ).
 
 *-------------------------------------------------------------------------*
-*             EntitySet -  BESTPRACTICESet
+*             EntitySet -  NOTESet
 *-------------------------------------------------------------------------*
-   WHEN 'BESTPRACTICESet'.
+   WHEN 'NOTESet'.
 *     Call the entity set generated method
-      bestpracticeset_get_entityset(
+      noteset_get_entityset(
         EXPORTING
          iv_entity_name = iv_entity_name
          iv_entity_set_name = iv_entity_set_name
@@ -2300,13 +2441,43 @@ CASE lv_entityset_name.
          iv_search_string = iv_search_string
          io_tech_request_context = io_tech_request_context
        IMPORTING
-         et_entityset = bestpracticeset_get_entityset
+         et_entityset = noteset_get_entityset
          es_response_context = es_response_context
        ).
 *     Send specific entity data to the caller interface
       copy_data_to_ref(
         EXPORTING
-          is_data = bestpracticeset_get_entityset
+          is_data = noteset_get_entityset
+        CHANGING
+          cr_data = er_entityset
+      ).
+
+*-------------------------------------------------------------------------*
+*             EntitySet -  SOLMAN_BWSet
+*-------------------------------------------------------------------------*
+   WHEN 'SOLMAN_BWSet'.
+*     Call the entity set generated method
+      solman_bwset_get_entityset(
+        EXPORTING
+         iv_entity_name = iv_entity_name
+         iv_entity_set_name = iv_entity_set_name
+         iv_source_name = iv_source_name
+         it_filter_select_options = it_filter_select_options
+         it_order = it_order
+         is_paging = is_paging
+         it_navigation_path = it_navigation_path
+         it_key_tab = it_key_tab
+         iv_filter_string = iv_filter_string
+         iv_search_string = iv_search_string
+         io_tech_request_context = io_tech_request_context
+       IMPORTING
+         et_entityset = solman_bwset_get_entityset
+         es_response_context = es_response_context
+       ).
+*     Send specific entity data to the caller interface
+      copy_data_to_ref(
+        EXPORTING
+          is_data = solman_bwset_get_entityset
         CHANGING
           cr_data = er_entityset
       ).
@@ -2342,11 +2513,11 @@ CASE lv_entityset_name.
       ).
 
 *-------------------------------------------------------------------------*
-*             EntitySet -  EXTRACTORSet
+*             EntitySet -  SOLMAN_NOTESet
 *-------------------------------------------------------------------------*
-   WHEN 'EXTRACTORSet'.
+   WHEN 'SOLMAN_NOTESet'.
 *     Call the entity set generated method
-      extractorset_get_entityset(
+      solman_noteset_get_entityset(
         EXPORTING
          iv_entity_name = iv_entity_name
          iv_entity_set_name = iv_entity_set_name
@@ -2360,23 +2531,23 @@ CASE lv_entityset_name.
          iv_search_string = iv_search_string
          io_tech_request_context = io_tech_request_context
        IMPORTING
-         et_entityset = extractorset_get_entityset
+         et_entityset = solman_noteset_get_entityset
          es_response_context = es_response_context
        ).
 *     Send specific entity data to the caller interface
       copy_data_to_ref(
         EXPORTING
-          is_data = extractorset_get_entityset
+          is_data = solman_noteset_get_entityset
         CHANGING
           cr_data = er_entityset
       ).
 
 *-------------------------------------------------------------------------*
-*             EntitySet -  NOTESet
+*             EntitySet -  BESTPRACTICESet
 *-------------------------------------------------------------------------*
-   WHEN 'NOTESet'.
+   WHEN 'BESTPRACTICESet'.
 *     Call the entity set generated method
-      noteset_get_entityset(
+      bestpracticeset_get_entityset(
         EXPORTING
          iv_entity_name = iv_entity_name
          iv_entity_set_name = iv_entity_set_name
@@ -2390,43 +2561,13 @@ CASE lv_entityset_name.
          iv_search_string = iv_search_string
          io_tech_request_context = io_tech_request_context
        IMPORTING
-         et_entityset = noteset_get_entityset
+         et_entityset = bestpracticeset_get_entityset
          es_response_context = es_response_context
        ).
 *     Send specific entity data to the caller interface
       copy_data_to_ref(
         EXPORTING
-          is_data = noteset_get_entityset
-        CHANGING
-          cr_data = er_entityset
-      ).
-
-*-------------------------------------------------------------------------*
-*             EntitySet -  COLLECTORSet
-*-------------------------------------------------------------------------*
-   WHEN 'COLLECTORSet'.
-*     Call the entity set generated method
-      collectorset_get_entityset(
-        EXPORTING
-         iv_entity_name = iv_entity_name
-         iv_entity_set_name = iv_entity_set_name
-         iv_source_name = iv_source_name
-         it_filter_select_options = it_filter_select_options
-         it_order = it_order
-         is_paging = is_paging
-         it_navigation_path = it_navigation_path
-         it_key_tab = it_key_tab
-         iv_filter_string = iv_filter_string
-         iv_search_string = iv_search_string
-         io_tech_request_context = io_tech_request_context
-       IMPORTING
-         et_entityset = collectorset_get_entityset
-         es_response_context = es_response_context
-       ).
-*     Send specific entity data to the caller interface
-      copy_data_to_ref(
-        EXPORTING
-          is_data = collectorset_get_entityset
+          is_data = bestpracticeset_get_entityset
         CHANGING
           cr_data = er_entityset
       ).
@@ -2462,11 +2603,11 @@ CASE lv_entityset_name.
       ).
 
 *-------------------------------------------------------------------------*
-*             EntitySet -  ANALYSIS_JOB_RUNSet
+*             EntitySet -  SYSTEM_KPISet
 *-------------------------------------------------------------------------*
-   WHEN 'ANALYSIS_JOB_RUNSet'.
+   WHEN 'SYSTEM_KPISet'.
 *     Call the entity set generated method
-      analysis_job_run_get_entityset(
+      system_kpiset_get_entityset(
         EXPORTING
          iv_entity_name = iv_entity_name
          iv_entity_set_name = iv_entity_set_name
@@ -2480,13 +2621,13 @@ CASE lv_entityset_name.
          iv_search_string = iv_search_string
          io_tech_request_context = io_tech_request_context
        IMPORTING
-         et_entityset = analysis_job_run_get_entityset
+         et_entityset = system_kpiset_get_entityset
          es_response_context = es_response_context
        ).
 *     Send specific entity data to the caller interface
       copy_data_to_ref(
         EXPORTING
-          is_data = analysis_job_run_get_entityset
+          is_data = system_kpiset_get_entityset
         CHANGING
           cr_data = er_entityset
       ).
@@ -2522,11 +2663,11 @@ CASE lv_entityset_name.
       ).
 
 *-------------------------------------------------------------------------*
-*             EntitySet -  SOLMAN_BWSet
+*             EntitySet -  COLLECTORSet
 *-------------------------------------------------------------------------*
-   WHEN 'SOLMAN_BWSet'.
+   WHEN 'COLLECTORSet'.
 *     Call the entity set generated method
-      solman_bwset_get_entityset(
+      collectorset_get_entityset(
         EXPORTING
          iv_entity_name = iv_entity_name
          iv_entity_set_name = iv_entity_set_name
@@ -2540,13 +2681,43 @@ CASE lv_entityset_name.
          iv_search_string = iv_search_string
          io_tech_request_context = io_tech_request_context
        IMPORTING
-         et_entityset = solman_bwset_get_entityset
+         et_entityset = collectorset_get_entityset
          es_response_context = es_response_context
        ).
 *     Send specific entity data to the caller interface
       copy_data_to_ref(
         EXPORTING
-          is_data = solman_bwset_get_entityset
+          is_data = collectorset_get_entityset
+        CHANGING
+          cr_data = er_entityset
+      ).
+
+*-------------------------------------------------------------------------*
+*             EntitySet -  EXTRACTORSet
+*-------------------------------------------------------------------------*
+   WHEN 'EXTRACTORSet'.
+*     Call the entity set generated method
+      extractorset_get_entityset(
+        EXPORTING
+         iv_entity_name = iv_entity_name
+         iv_entity_set_name = iv_entity_set_name
+         iv_source_name = iv_source_name
+         it_filter_select_options = it_filter_select_options
+         it_order = it_order
+         is_paging = is_paging
+         it_navigation_path = it_navigation_path
+         it_key_tab = it_key_tab
+         iv_filter_string = iv_filter_string
+         iv_search_string = iv_search_string
+         io_tech_request_context = io_tech_request_context
+       IMPORTING
+         et_entityset = extractorset_get_entityset
+         es_response_context = es_response_context
+       ).
+*     Send specific entity data to the caller interface
+      copy_data_to_ref(
+        EXPORTING
+          is_data = extractorset_get_entityset
         CHANGING
           cr_data = er_entityset
       ).
@@ -2609,27 +2780,28 @@ CASE lv_entityset_name.
   method /IWBEP/IF_MGW_APPL_SRV_RUNTIME~UPDATE_ENTITY.
 *&----------------------------------------------------------------------------------------------*
 *&  Include           /IWBEP/DPC_TEMP_UPD_ENTITY_BASE
-*&* This class has been generated on 24.12.2018 09:46:34 in client 001
+*&* This class has been generated on 09.07.2019 11:30:03 in client 001
 *&*
 *&*       WARNING--> NEVER MODIFY THIS CLASS <--WARNING
 *&*   If you want to change the DPC implementation, use the
 *&*   generated methods inside the DPC provider subclass - ZCL_ZCCLM_ODATA_CM_DPC_EXT
 *&-----------------------------------------------------------------------------------------------*
 
- DATA analysis_jobset_update_entity TYPE zcl_zcclm_odata_cm_mpc=>ts_analysis_job.
- DATA solman_noteset_update_entity TYPE zcl_zcclm_odata_cm_mpc=>ts_solman_note.
- DATA collector_runset_update_entity TYPE zcl_zcclm_odata_cm_mpc=>ts_collector_run.
- DATA system_statusset_update_entity TYPE zcl_zcclm_odata_cm_mpc=>ts_system_status.
- DATA solman_jobset_update_entity TYPE zcl_zcclm_odata_cm_mpc=>ts_solman_job.
- DATA extractor_runset_update_entity TYPE zcl_zcclm_odata_cm_mpc=>ts_extractor_run.
- DATA extractorset_update_entity TYPE zcl_zcclm_odata_cm_mpc=>ts_extractor.
- DATA bestpracticeset_update_entity TYPE zcl_zcclm_odata_cm_mpc=>ts_bestpractice.
- DATA collectorset_update_entity TYPE zcl_zcclm_odata_cm_mpc=>ts_collector.
- DATA noteset_update_entity TYPE zcl_zcclm_odata_cm_mpc=>ts_note.
- DATA solman_bwset_update_entity TYPE zcl_zcclm_odata_cm_mpc=>ts_solman_bw.
- DATA landscape_status_update_entity TYPE zcl_zcclm_odata_cm_mpc=>ts_landscape_status.
+ DATA system_kpiset_update_entity TYPE zcl_zcclm_odata_cm_mpc=>ts_system_kpi.
  DATA analysis_job_run_update_entity TYPE zcl_zcclm_odata_cm_mpc=>ts_analysis_job_run.
+ DATA noteset_update_entity TYPE zcl_zcclm_odata_cm_mpc=>ts_note.
+ DATA extractor_runset_update_entity TYPE zcl_zcclm_odata_cm_mpc=>ts_extractor_run.
+ DATA collector_runset_update_entity TYPE zcl_zcclm_odata_cm_mpc=>ts_collector_run.
+ DATA analysis_jobset_update_entity TYPE zcl_zcclm_odata_cm_mpc=>ts_analysis_job.
+ DATA system_statusset_update_entity TYPE zcl_zcclm_odata_cm_mpc=>ts_system_status.
+ DATA extractorset_update_entity TYPE zcl_zcclm_odata_cm_mpc=>ts_extractor.
+ DATA collectorset_update_entity TYPE zcl_zcclm_odata_cm_mpc=>ts_collector.
+ DATA landscape_status_update_entity TYPE zcl_zcclm_odata_cm_mpc=>ts_landscape_status.
  DATA solman_job_runse_update_entity TYPE zcl_zcclm_odata_cm_mpc=>ts_solman_job_run.
+ DATA bestpracticeset_update_entity TYPE zcl_zcclm_odata_cm_mpc=>ts_bestpractice.
+ DATA solman_noteset_update_entity TYPE zcl_zcclm_odata_cm_mpc=>ts_solman_note.
+ DATA solman_jobset_update_entity TYPE zcl_zcclm_odata_cm_mpc=>ts_solman_job.
+ DATA solman_bwset_update_entity TYPE zcl_zcclm_odata_cm_mpc=>ts_solman_bw.
  DATA lv_entityset_name TYPE string.
  DATA lr_entity TYPE REF TO data. "#EC NEEDED
 
@@ -2637,11 +2809,11 @@ lv_entityset_name = io_tech_request_context->get_entity_set_name( ).
 
 CASE lv_entityset_name.
 *-------------------------------------------------------------------------*
-*             EntitySet -  ANALYSIS_JOBSet
+*             EntitySet -  SYSTEM_KPISet
 *-------------------------------------------------------------------------*
-      WHEN 'ANALYSIS_JOBSet'.
+      WHEN 'SYSTEM_KPISet'.
 *     Call the entity set generated method
-          analysis_jobset_update_entity(
+          system_kpiset_update_entity(
                EXPORTING iv_entity_name     = iv_entity_name
                          iv_entity_set_name = iv_entity_set_name
                          iv_source_name     = iv_source_name
@@ -2649,310 +2821,13 @@ CASE lv_entityset_name.
                          it_key_tab         = it_key_tab
                          it_navigation_path = it_navigation_path
                          io_tech_request_context = io_tech_request_context
-               IMPORTING er_entity          = analysis_jobset_update_entity
+               IMPORTING er_entity          = system_kpiset_update_entity
           ).
-       IF analysis_jobset_update_entity IS NOT INITIAL.
+       IF system_kpiset_update_entity IS NOT INITIAL.
 *     Send specific entity data to the caller interface
           copy_data_to_ref(
             EXPORTING
-              is_data = analysis_jobset_update_entity
-            CHANGING
-              cr_data = er_entity
-          ).
-        ELSE.
-*         In case of initial values - unbind the entity reference
-          er_entity = lr_entity.
-        ENDIF.
-*-------------------------------------------------------------------------*
-*             EntitySet -  SOLMAN_NOTESet
-*-------------------------------------------------------------------------*
-      WHEN 'SOLMAN_NOTESet'.
-*     Call the entity set generated method
-          solman_noteset_update_entity(
-               EXPORTING iv_entity_name     = iv_entity_name
-                         iv_entity_set_name = iv_entity_set_name
-                         iv_source_name     = iv_source_name
-                         io_data_provider   = io_data_provider
-                         it_key_tab         = it_key_tab
-                         it_navigation_path = it_navigation_path
-                         io_tech_request_context = io_tech_request_context
-               IMPORTING er_entity          = solman_noteset_update_entity
-          ).
-       IF solman_noteset_update_entity IS NOT INITIAL.
-*     Send specific entity data to the caller interface
-          copy_data_to_ref(
-            EXPORTING
-              is_data = solman_noteset_update_entity
-            CHANGING
-              cr_data = er_entity
-          ).
-        ELSE.
-*         In case of initial values - unbind the entity reference
-          er_entity = lr_entity.
-        ENDIF.
-*-------------------------------------------------------------------------*
-*             EntitySet -  COLLECTOR_RUNSet
-*-------------------------------------------------------------------------*
-      WHEN 'COLLECTOR_RUNSet'.
-*     Call the entity set generated method
-          collector_runset_update_entity(
-               EXPORTING iv_entity_name     = iv_entity_name
-                         iv_entity_set_name = iv_entity_set_name
-                         iv_source_name     = iv_source_name
-                         io_data_provider   = io_data_provider
-                         it_key_tab         = it_key_tab
-                         it_navigation_path = it_navigation_path
-                         io_tech_request_context = io_tech_request_context
-               IMPORTING er_entity          = collector_runset_update_entity
-          ).
-       IF collector_runset_update_entity IS NOT INITIAL.
-*     Send specific entity data to the caller interface
-          copy_data_to_ref(
-            EXPORTING
-              is_data = collector_runset_update_entity
-            CHANGING
-              cr_data = er_entity
-          ).
-        ELSE.
-*         In case of initial values - unbind the entity reference
-          er_entity = lr_entity.
-        ENDIF.
-*-------------------------------------------------------------------------*
-*             EntitySet -  SYSTEM_STATUSSet
-*-------------------------------------------------------------------------*
-      WHEN 'SYSTEM_STATUSSet'.
-*     Call the entity set generated method
-          system_statusset_update_entity(
-               EXPORTING iv_entity_name     = iv_entity_name
-                         iv_entity_set_name = iv_entity_set_name
-                         iv_source_name     = iv_source_name
-                         io_data_provider   = io_data_provider
-                         it_key_tab         = it_key_tab
-                         it_navigation_path = it_navigation_path
-                         io_tech_request_context = io_tech_request_context
-               IMPORTING er_entity          = system_statusset_update_entity
-          ).
-       IF system_statusset_update_entity IS NOT INITIAL.
-*     Send specific entity data to the caller interface
-          copy_data_to_ref(
-            EXPORTING
-              is_data = system_statusset_update_entity
-            CHANGING
-              cr_data = er_entity
-          ).
-        ELSE.
-*         In case of initial values - unbind the entity reference
-          er_entity = lr_entity.
-        ENDIF.
-*-------------------------------------------------------------------------*
-*             EntitySet -  SOLMAN_JOBSet
-*-------------------------------------------------------------------------*
-      WHEN 'SOLMAN_JOBSet'.
-*     Call the entity set generated method
-          solman_jobset_update_entity(
-               EXPORTING iv_entity_name     = iv_entity_name
-                         iv_entity_set_name = iv_entity_set_name
-                         iv_source_name     = iv_source_name
-                         io_data_provider   = io_data_provider
-                         it_key_tab         = it_key_tab
-                         it_navigation_path = it_navigation_path
-                         io_tech_request_context = io_tech_request_context
-               IMPORTING er_entity          = solman_jobset_update_entity
-          ).
-       IF solman_jobset_update_entity IS NOT INITIAL.
-*     Send specific entity data to the caller interface
-          copy_data_to_ref(
-            EXPORTING
-              is_data = solman_jobset_update_entity
-            CHANGING
-              cr_data = er_entity
-          ).
-        ELSE.
-*         In case of initial values - unbind the entity reference
-          er_entity = lr_entity.
-        ENDIF.
-*-------------------------------------------------------------------------*
-*             EntitySet -  EXTRACTOR_RUNSet
-*-------------------------------------------------------------------------*
-      WHEN 'EXTRACTOR_RUNSet'.
-*     Call the entity set generated method
-          extractor_runset_update_entity(
-               EXPORTING iv_entity_name     = iv_entity_name
-                         iv_entity_set_name = iv_entity_set_name
-                         iv_source_name     = iv_source_name
-                         io_data_provider   = io_data_provider
-                         it_key_tab         = it_key_tab
-                         it_navigation_path = it_navigation_path
-                         io_tech_request_context = io_tech_request_context
-               IMPORTING er_entity          = extractor_runset_update_entity
-          ).
-       IF extractor_runset_update_entity IS NOT INITIAL.
-*     Send specific entity data to the caller interface
-          copy_data_to_ref(
-            EXPORTING
-              is_data = extractor_runset_update_entity
-            CHANGING
-              cr_data = er_entity
-          ).
-        ELSE.
-*         In case of initial values - unbind the entity reference
-          er_entity = lr_entity.
-        ENDIF.
-*-------------------------------------------------------------------------*
-*             EntitySet -  EXTRACTORSet
-*-------------------------------------------------------------------------*
-      WHEN 'EXTRACTORSet'.
-*     Call the entity set generated method
-          extractorset_update_entity(
-               EXPORTING iv_entity_name     = iv_entity_name
-                         iv_entity_set_name = iv_entity_set_name
-                         iv_source_name     = iv_source_name
-                         io_data_provider   = io_data_provider
-                         it_key_tab         = it_key_tab
-                         it_navigation_path = it_navigation_path
-                         io_tech_request_context = io_tech_request_context
-               IMPORTING er_entity          = extractorset_update_entity
-          ).
-       IF extractorset_update_entity IS NOT INITIAL.
-*     Send specific entity data to the caller interface
-          copy_data_to_ref(
-            EXPORTING
-              is_data = extractorset_update_entity
-            CHANGING
-              cr_data = er_entity
-          ).
-        ELSE.
-*         In case of initial values - unbind the entity reference
-          er_entity = lr_entity.
-        ENDIF.
-*-------------------------------------------------------------------------*
-*             EntitySet -  BESTPRACTICESet
-*-------------------------------------------------------------------------*
-      WHEN 'BESTPRACTICESet'.
-*     Call the entity set generated method
-          bestpracticeset_update_entity(
-               EXPORTING iv_entity_name     = iv_entity_name
-                         iv_entity_set_name = iv_entity_set_name
-                         iv_source_name     = iv_source_name
-                         io_data_provider   = io_data_provider
-                         it_key_tab         = it_key_tab
-                         it_navigation_path = it_navigation_path
-                         io_tech_request_context = io_tech_request_context
-               IMPORTING er_entity          = bestpracticeset_update_entity
-          ).
-       IF bestpracticeset_update_entity IS NOT INITIAL.
-*     Send specific entity data to the caller interface
-          copy_data_to_ref(
-            EXPORTING
-              is_data = bestpracticeset_update_entity
-            CHANGING
-              cr_data = er_entity
-          ).
-        ELSE.
-*         In case of initial values - unbind the entity reference
-          er_entity = lr_entity.
-        ENDIF.
-*-------------------------------------------------------------------------*
-*             EntitySet -  COLLECTORSet
-*-------------------------------------------------------------------------*
-      WHEN 'COLLECTORSet'.
-*     Call the entity set generated method
-          collectorset_update_entity(
-               EXPORTING iv_entity_name     = iv_entity_name
-                         iv_entity_set_name = iv_entity_set_name
-                         iv_source_name     = iv_source_name
-                         io_data_provider   = io_data_provider
-                         it_key_tab         = it_key_tab
-                         it_navigation_path = it_navigation_path
-                         io_tech_request_context = io_tech_request_context
-               IMPORTING er_entity          = collectorset_update_entity
-          ).
-       IF collectorset_update_entity IS NOT INITIAL.
-*     Send specific entity data to the caller interface
-          copy_data_to_ref(
-            EXPORTING
-              is_data = collectorset_update_entity
-            CHANGING
-              cr_data = er_entity
-          ).
-        ELSE.
-*         In case of initial values - unbind the entity reference
-          er_entity = lr_entity.
-        ENDIF.
-*-------------------------------------------------------------------------*
-*             EntitySet -  NOTESet
-*-------------------------------------------------------------------------*
-      WHEN 'NOTESet'.
-*     Call the entity set generated method
-          noteset_update_entity(
-               EXPORTING iv_entity_name     = iv_entity_name
-                         iv_entity_set_name = iv_entity_set_name
-                         iv_source_name     = iv_source_name
-                         io_data_provider   = io_data_provider
-                         it_key_tab         = it_key_tab
-                         it_navigation_path = it_navigation_path
-                         io_tech_request_context = io_tech_request_context
-               IMPORTING er_entity          = noteset_update_entity
-          ).
-       IF noteset_update_entity IS NOT INITIAL.
-*     Send specific entity data to the caller interface
-          copy_data_to_ref(
-            EXPORTING
-              is_data = noteset_update_entity
-            CHANGING
-              cr_data = er_entity
-          ).
-        ELSE.
-*         In case of initial values - unbind the entity reference
-          er_entity = lr_entity.
-        ENDIF.
-*-------------------------------------------------------------------------*
-*             EntitySet -  SOLMAN_BWSet
-*-------------------------------------------------------------------------*
-      WHEN 'SOLMAN_BWSet'.
-*     Call the entity set generated method
-          solman_bwset_update_entity(
-               EXPORTING iv_entity_name     = iv_entity_name
-                         iv_entity_set_name = iv_entity_set_name
-                         iv_source_name     = iv_source_name
-                         io_data_provider   = io_data_provider
-                         it_key_tab         = it_key_tab
-                         it_navigation_path = it_navigation_path
-                         io_tech_request_context = io_tech_request_context
-               IMPORTING er_entity          = solman_bwset_update_entity
-          ).
-       IF solman_bwset_update_entity IS NOT INITIAL.
-*     Send specific entity data to the caller interface
-          copy_data_to_ref(
-            EXPORTING
-              is_data = solman_bwset_update_entity
-            CHANGING
-              cr_data = er_entity
-          ).
-        ELSE.
-*         In case of initial values - unbind the entity reference
-          er_entity = lr_entity.
-        ENDIF.
-*-------------------------------------------------------------------------*
-*             EntitySet -  LANDSCAPE_STATUSSet
-*-------------------------------------------------------------------------*
-      WHEN 'LANDSCAPE_STATUSSet'.
-*     Call the entity set generated method
-          landscape_status_update_entity(
-               EXPORTING iv_entity_name     = iv_entity_name
-                         iv_entity_set_name = iv_entity_set_name
-                         iv_source_name     = iv_source_name
-                         io_data_provider   = io_data_provider
-                         it_key_tab         = it_key_tab
-                         it_navigation_path = it_navigation_path
-                         io_tech_request_context = io_tech_request_context
-               IMPORTING er_entity          = landscape_status_update_entity
-          ).
-       IF landscape_status_update_entity IS NOT INITIAL.
-*     Send specific entity data to the caller interface
-          copy_data_to_ref(
-            EXPORTING
-              is_data = landscape_status_update_entity
+              is_data = system_kpiset_update_entity
             CHANGING
               cr_data = er_entity
           ).
@@ -2988,6 +2863,222 @@ CASE lv_entityset_name.
           er_entity = lr_entity.
         ENDIF.
 *-------------------------------------------------------------------------*
+*             EntitySet -  NOTESet
+*-------------------------------------------------------------------------*
+      WHEN 'NOTESet'.
+*     Call the entity set generated method
+          noteset_update_entity(
+               EXPORTING iv_entity_name     = iv_entity_name
+                         iv_entity_set_name = iv_entity_set_name
+                         iv_source_name     = iv_source_name
+                         io_data_provider   = io_data_provider
+                         it_key_tab         = it_key_tab
+                         it_navigation_path = it_navigation_path
+                         io_tech_request_context = io_tech_request_context
+               IMPORTING er_entity          = noteset_update_entity
+          ).
+       IF noteset_update_entity IS NOT INITIAL.
+*     Send specific entity data to the caller interface
+          copy_data_to_ref(
+            EXPORTING
+              is_data = noteset_update_entity
+            CHANGING
+              cr_data = er_entity
+          ).
+        ELSE.
+*         In case of initial values - unbind the entity reference
+          er_entity = lr_entity.
+        ENDIF.
+*-------------------------------------------------------------------------*
+*             EntitySet -  EXTRACTOR_RUNSet
+*-------------------------------------------------------------------------*
+      WHEN 'EXTRACTOR_RUNSet'.
+*     Call the entity set generated method
+          extractor_runset_update_entity(
+               EXPORTING iv_entity_name     = iv_entity_name
+                         iv_entity_set_name = iv_entity_set_name
+                         iv_source_name     = iv_source_name
+                         io_data_provider   = io_data_provider
+                         it_key_tab         = it_key_tab
+                         it_navigation_path = it_navigation_path
+                         io_tech_request_context = io_tech_request_context
+               IMPORTING er_entity          = extractor_runset_update_entity
+          ).
+       IF extractor_runset_update_entity IS NOT INITIAL.
+*     Send specific entity data to the caller interface
+          copy_data_to_ref(
+            EXPORTING
+              is_data = extractor_runset_update_entity
+            CHANGING
+              cr_data = er_entity
+          ).
+        ELSE.
+*         In case of initial values - unbind the entity reference
+          er_entity = lr_entity.
+        ENDIF.
+*-------------------------------------------------------------------------*
+*             EntitySet -  COLLECTOR_RUNSet
+*-------------------------------------------------------------------------*
+      WHEN 'COLLECTOR_RUNSet'.
+*     Call the entity set generated method
+          collector_runset_update_entity(
+               EXPORTING iv_entity_name     = iv_entity_name
+                         iv_entity_set_name = iv_entity_set_name
+                         iv_source_name     = iv_source_name
+                         io_data_provider   = io_data_provider
+                         it_key_tab         = it_key_tab
+                         it_navigation_path = it_navigation_path
+                         io_tech_request_context = io_tech_request_context
+               IMPORTING er_entity          = collector_runset_update_entity
+          ).
+       IF collector_runset_update_entity IS NOT INITIAL.
+*     Send specific entity data to the caller interface
+          copy_data_to_ref(
+            EXPORTING
+              is_data = collector_runset_update_entity
+            CHANGING
+              cr_data = er_entity
+          ).
+        ELSE.
+*         In case of initial values - unbind the entity reference
+          er_entity = lr_entity.
+        ENDIF.
+*-------------------------------------------------------------------------*
+*             EntitySet -  ANALYSIS_JOBSet
+*-------------------------------------------------------------------------*
+      WHEN 'ANALYSIS_JOBSet'.
+*     Call the entity set generated method
+          analysis_jobset_update_entity(
+               EXPORTING iv_entity_name     = iv_entity_name
+                         iv_entity_set_name = iv_entity_set_name
+                         iv_source_name     = iv_source_name
+                         io_data_provider   = io_data_provider
+                         it_key_tab         = it_key_tab
+                         it_navigation_path = it_navigation_path
+                         io_tech_request_context = io_tech_request_context
+               IMPORTING er_entity          = analysis_jobset_update_entity
+          ).
+       IF analysis_jobset_update_entity IS NOT INITIAL.
+*     Send specific entity data to the caller interface
+          copy_data_to_ref(
+            EXPORTING
+              is_data = analysis_jobset_update_entity
+            CHANGING
+              cr_data = er_entity
+          ).
+        ELSE.
+*         In case of initial values - unbind the entity reference
+          er_entity = lr_entity.
+        ENDIF.
+*-------------------------------------------------------------------------*
+*             EntitySet -  SYSTEM_STATUSSet
+*-------------------------------------------------------------------------*
+      WHEN 'SYSTEM_STATUSSet'.
+*     Call the entity set generated method
+          system_statusset_update_entity(
+               EXPORTING iv_entity_name     = iv_entity_name
+                         iv_entity_set_name = iv_entity_set_name
+                         iv_source_name     = iv_source_name
+                         io_data_provider   = io_data_provider
+                         it_key_tab         = it_key_tab
+                         it_navigation_path = it_navigation_path
+                         io_tech_request_context = io_tech_request_context
+               IMPORTING er_entity          = system_statusset_update_entity
+          ).
+       IF system_statusset_update_entity IS NOT INITIAL.
+*     Send specific entity data to the caller interface
+          copy_data_to_ref(
+            EXPORTING
+              is_data = system_statusset_update_entity
+            CHANGING
+              cr_data = er_entity
+          ).
+        ELSE.
+*         In case of initial values - unbind the entity reference
+          er_entity = lr_entity.
+        ENDIF.
+*-------------------------------------------------------------------------*
+*             EntitySet -  EXTRACTORSet
+*-------------------------------------------------------------------------*
+      WHEN 'EXTRACTORSet'.
+*     Call the entity set generated method
+          extractorset_update_entity(
+               EXPORTING iv_entity_name     = iv_entity_name
+                         iv_entity_set_name = iv_entity_set_name
+                         iv_source_name     = iv_source_name
+                         io_data_provider   = io_data_provider
+                         it_key_tab         = it_key_tab
+                         it_navigation_path = it_navigation_path
+                         io_tech_request_context = io_tech_request_context
+               IMPORTING er_entity          = extractorset_update_entity
+          ).
+       IF extractorset_update_entity IS NOT INITIAL.
+*     Send specific entity data to the caller interface
+          copy_data_to_ref(
+            EXPORTING
+              is_data = extractorset_update_entity
+            CHANGING
+              cr_data = er_entity
+          ).
+        ELSE.
+*         In case of initial values - unbind the entity reference
+          er_entity = lr_entity.
+        ENDIF.
+*-------------------------------------------------------------------------*
+*             EntitySet -  COLLECTORSet
+*-------------------------------------------------------------------------*
+      WHEN 'COLLECTORSet'.
+*     Call the entity set generated method
+          collectorset_update_entity(
+               EXPORTING iv_entity_name     = iv_entity_name
+                         iv_entity_set_name = iv_entity_set_name
+                         iv_source_name     = iv_source_name
+                         io_data_provider   = io_data_provider
+                         it_key_tab         = it_key_tab
+                         it_navigation_path = it_navigation_path
+                         io_tech_request_context = io_tech_request_context
+               IMPORTING er_entity          = collectorset_update_entity
+          ).
+       IF collectorset_update_entity IS NOT INITIAL.
+*     Send specific entity data to the caller interface
+          copy_data_to_ref(
+            EXPORTING
+              is_data = collectorset_update_entity
+            CHANGING
+              cr_data = er_entity
+          ).
+        ELSE.
+*         In case of initial values - unbind the entity reference
+          er_entity = lr_entity.
+        ENDIF.
+*-------------------------------------------------------------------------*
+*             EntitySet -  LANDSCAPE_STATUSSet
+*-------------------------------------------------------------------------*
+      WHEN 'LANDSCAPE_STATUSSet'.
+*     Call the entity set generated method
+          landscape_status_update_entity(
+               EXPORTING iv_entity_name     = iv_entity_name
+                         iv_entity_set_name = iv_entity_set_name
+                         iv_source_name     = iv_source_name
+                         io_data_provider   = io_data_provider
+                         it_key_tab         = it_key_tab
+                         it_navigation_path = it_navigation_path
+                         io_tech_request_context = io_tech_request_context
+               IMPORTING er_entity          = landscape_status_update_entity
+          ).
+       IF landscape_status_update_entity IS NOT INITIAL.
+*     Send specific entity data to the caller interface
+          copy_data_to_ref(
+            EXPORTING
+              is_data = landscape_status_update_entity
+            CHANGING
+              cr_data = er_entity
+          ).
+        ELSE.
+*         In case of initial values - unbind the entity reference
+          er_entity = lr_entity.
+        ENDIF.
+*-------------------------------------------------------------------------*
 *             EntitySet -  SOLMAN_JOB_RUNSet
 *-------------------------------------------------------------------------*
       WHEN 'SOLMAN_JOB_RUNSet'.
@@ -3007,6 +3098,114 @@ CASE lv_entityset_name.
           copy_data_to_ref(
             EXPORTING
               is_data = solman_job_runse_update_entity
+            CHANGING
+              cr_data = er_entity
+          ).
+        ELSE.
+*         In case of initial values - unbind the entity reference
+          er_entity = lr_entity.
+        ENDIF.
+*-------------------------------------------------------------------------*
+*             EntitySet -  BESTPRACTICESet
+*-------------------------------------------------------------------------*
+      WHEN 'BESTPRACTICESet'.
+*     Call the entity set generated method
+          bestpracticeset_update_entity(
+               EXPORTING iv_entity_name     = iv_entity_name
+                         iv_entity_set_name = iv_entity_set_name
+                         iv_source_name     = iv_source_name
+                         io_data_provider   = io_data_provider
+                         it_key_tab         = it_key_tab
+                         it_navigation_path = it_navigation_path
+                         io_tech_request_context = io_tech_request_context
+               IMPORTING er_entity          = bestpracticeset_update_entity
+          ).
+       IF bestpracticeset_update_entity IS NOT INITIAL.
+*     Send specific entity data to the caller interface
+          copy_data_to_ref(
+            EXPORTING
+              is_data = bestpracticeset_update_entity
+            CHANGING
+              cr_data = er_entity
+          ).
+        ELSE.
+*         In case of initial values - unbind the entity reference
+          er_entity = lr_entity.
+        ENDIF.
+*-------------------------------------------------------------------------*
+*             EntitySet -  SOLMAN_NOTESet
+*-------------------------------------------------------------------------*
+      WHEN 'SOLMAN_NOTESet'.
+*     Call the entity set generated method
+          solman_noteset_update_entity(
+               EXPORTING iv_entity_name     = iv_entity_name
+                         iv_entity_set_name = iv_entity_set_name
+                         iv_source_name     = iv_source_name
+                         io_data_provider   = io_data_provider
+                         it_key_tab         = it_key_tab
+                         it_navigation_path = it_navigation_path
+                         io_tech_request_context = io_tech_request_context
+               IMPORTING er_entity          = solman_noteset_update_entity
+          ).
+       IF solman_noteset_update_entity IS NOT INITIAL.
+*     Send specific entity data to the caller interface
+          copy_data_to_ref(
+            EXPORTING
+              is_data = solman_noteset_update_entity
+            CHANGING
+              cr_data = er_entity
+          ).
+        ELSE.
+*         In case of initial values - unbind the entity reference
+          er_entity = lr_entity.
+        ENDIF.
+*-------------------------------------------------------------------------*
+*             EntitySet -  SOLMAN_JOBSet
+*-------------------------------------------------------------------------*
+      WHEN 'SOLMAN_JOBSet'.
+*     Call the entity set generated method
+          solman_jobset_update_entity(
+               EXPORTING iv_entity_name     = iv_entity_name
+                         iv_entity_set_name = iv_entity_set_name
+                         iv_source_name     = iv_source_name
+                         io_data_provider   = io_data_provider
+                         it_key_tab         = it_key_tab
+                         it_navigation_path = it_navigation_path
+                         io_tech_request_context = io_tech_request_context
+               IMPORTING er_entity          = solman_jobset_update_entity
+          ).
+       IF solman_jobset_update_entity IS NOT INITIAL.
+*     Send specific entity data to the caller interface
+          copy_data_to_ref(
+            EXPORTING
+              is_data = solman_jobset_update_entity
+            CHANGING
+              cr_data = er_entity
+          ).
+        ELSE.
+*         In case of initial values - unbind the entity reference
+          er_entity = lr_entity.
+        ENDIF.
+*-------------------------------------------------------------------------*
+*             EntitySet -  SOLMAN_BWSet
+*-------------------------------------------------------------------------*
+      WHEN 'SOLMAN_BWSet'.
+*     Call the entity set generated method
+          solman_bwset_update_entity(
+               EXPORTING iv_entity_name     = iv_entity_name
+                         iv_entity_set_name = iv_entity_set_name
+                         iv_source_name     = iv_source_name
+                         io_data_provider   = io_data_provider
+                         it_key_tab         = it_key_tab
+                         it_navigation_path = it_navigation_path
+                         io_tech_request_context = io_tech_request_context
+               IMPORTING er_entity          = solman_bwset_update_entity
+          ).
+       IF solman_bwset_update_entity IS NOT INITIAL.
+*     Send specific entity data to the caller interface
+          copy_data_to_ref(
+            EXPORTING
+              is_data = solman_bwset_update_entity
             CHANGING
               cr_data = er_entity
           ).
@@ -3405,72 +3604,80 @@ lo_logger = /iwbep/if_mgw_conv_srv_runtime~get_logger( ).
                | <sadl:dataSource type="CDS" name="EXTRACTORSet" binding="ZCCLM_CM_CDS_SYS_EXT_STATUS" />| &
                | <sadl:dataSource type="CDS" name="COLLECTOR_RUNSet" binding="ZCCLM_CM_CDS_SYS_COLL_STAT_RUN" />| &
                | <sadl:dataSource type="CDS" name="EXTRACTOR_RUNSet" binding="ZCCLM_CM_CDS_SYS_EXTR_LOG" />| &
+               | <sadl:dataSource type="CDS" name="SYSTEM_KPISet" binding="ZCCLM_CM_KPIS" />| &
                |<sadl:resultSet>| &
+               |<sadl:structure name="SYSTEM_KPISet" dataSource="SYSTEM_KPISet" maxEditMode="RO" >| &
+               | <sadl:query name="EntitySetDefault" >| &
+               | </sadl:query>| &
+               | <sadl:attribute name="NAME" binding="NAME" isOutput="TRUE" isKey="TRUE" />| &
+               | <sadl:attribute name="SYSTEMID" binding="SYSTEMID" isOutput="TRUE" isKey="TRUE" />| &
+               | <sadl:attribute name="VALUE" binding="VALUE" isOutput="TRUE" isKey="FALSE" />| &
+               |</sadl:structure>| &
+               |<sadl:structure name="COLLECTORSet" dataSource="COLLECTORSet" maxEditMode="RO" >| &
+               | <sadl:query name="EntitySetDefault" >| &
+               | </sadl:query>| &
+               | <sadl:attribute name="COLLECTORID" binding="COLLECTORID" isOutput="TRUE" isKey="TRUE" />| &
+               | <sadl:attribute name="COLLECTORNAME" binding="COLLECTORNAME" isOutput="TRUE" isKey="FALSE" />| &
+               | <sadl:attribute name="COLLECTORSTATUS" binding="COLLECTORSTATUS" isOutput="TRUE" isKey="FALSE" />| &
+               | <sadl:attribute name="RETURNCODE" binding="RETURNCODE" isOutput="TRUE" isKey="FALSE" />| &
+               | <sadl:attribute name="COLLECTORPROGRESS" binding="COLLECTORPROGRESS" isOutput="TRUE" isKey="FALSE" />| &
+               | <sadl:attribute name="TIMESTART" binding="TIMESTART" isOutput="TRUE" isKey="FALSE" />| &
+               | <sadl:attribute name="TIMEEND" binding="TIMEEND" isOutput="TRUE" isKey="FALSE" />| &
+               | <sadl:attribute name="SYSTEMID" binding="SYSTEMID" isOutput="TRUE" isKey="TRUE" />| &
+               | <sadl:attribute name="BESTPRACTICE" binding="BESTPRACTICE" isOutput="TRUE" isKey="FALSE" />| &
+               | <sadl:attribute name="SYSTEMROLE" binding="SYSTEMROLE" isOutput="TRUE" isKey="FALSE" />| &
+               |</sadl:structure>| &
                |<sadl:structure name="COLLECTOR_RUNSet" dataSource="COLLECTOR_RUNSet" maxEditMode="RO" >| &
                | <sadl:query name="EntitySetDefault" >| &
                | </sadl:query>| &
-               | <sadl:attribute name="JOBNAME" binding="JOBNAME" isOutput="TRUE" isKey="FALSE" />| &
-               | <sadl:attribute name="NAME" binding="NAME" isOutput="TRUE" isKey="TRUE" />| &
-               | <sadl:attribute name="COLLECTORID" binding="COLLECTORID" isOutput="TRUE" isKey="TRUE" />| &
                | <sadl:attribute name="SYSTEMID" binding="SYSTEMID" isOutput="TRUE" isKey="TRUE" />| &
                | <sadl:attribute name="TIMESTART" binding="TIMESTART" isOutput="TRUE" isKey="TRUE" />| &
                | <sadl:attribute name="TIMEEND" binding="TIMEEND" isOutput="TRUE" isKey="TRUE" />| &
                | <sadl:attribute name="STATUS" binding="STATUS" isOutput="TRUE" isKey="FALSE" />| &
                | <sadl:attribute name="PROGRESS" binding="PROGRESS" isOutput="TRUE" isKey="FALSE" />| &
+               | <sadl:attribute name="JOBNAME" binding="JOBNAME" isOutput="TRUE" isKey="FALSE" />| &
+               | <sadl:attribute name="NAME" binding="NAME" isOutput="TRUE" isKey="TRUE" />| &
+               | <sadl:attribute name="COLLECTORID" binding="COLLECTORID" isOutput="TRUE" isKey="TRUE" />| &
                |</sadl:structure>| &
                |<sadl:structure name="EXTRACTOR_RUNSet" dataSource="EXTRACTOR_RUNSet" maxEditMode="RO" >| &
                | <sadl:query name="EntitySetDefault" >| &
                | </sadl:query>| &
-               | <sadl:attribute name="WLIID" binding="WLIID" isOutput="TRUE" isKey="TRUE" />| &
-               | <sadl:attribute name="RETURNCODE" binding="RETURNCODE" isOutput="TRUE" isKey="FALSE" />| &
-               | <sadl:attribute name="MESSAGE" binding="MESSAGE" isOutput="TRUE" isKey="FALSE" />| &
                | <sadl:attribute name="RUNTIME" binding="RUNTIME" isOutput="TRUE" isKey="FALSE" />| &
                | <sadl:attribute name="RECORDS" binding="RECORDS" isOutput="TRUE" isKey="FALSE" />| &
                | <sadl:attribute name="SYSID" binding="SYSID" isOutput="TRUE" isKey="TRUE" />| &
                | <sadl:attribute name="ISACTIVE" binding="ISACTIVE" isOutput="TRUE" isKey="FALSE" />| &
                | <sadl:attribute name="EXTRACTOR" binding="EXTRACTOR" isOutput="TRUE" isKey="FALSE" />| &
-               | <sadl:attribute name="NAME" binding="NAME" isOutput="TRUE" isKey="FALSE" />| &
-               | <sadl:attribute name="DELTA" binding="DELTA" isOutput="TRUE" isKey="FALSE" />| &
-               | <sadl:attribute name="TIME" binding="TIME" isOutput="TRUE" isKey="TRUE" />| &
-               | <sadl:attribute name="PHASE" binding="PHASE" isOutput="TRUE" isKey="TRUE" />| &
-               | <sadl:attribute name="LOGSTATUS" binding="LOGSTATUS" isOutput="TRUE" isKey="FALSE" />| &
-               |</sadl:structure>| &
-               |<sadl:structure name="EXTRACTORSet" dataSource="EXTRACTORSet" maxEditMode="RO" >| &
-               | <sadl:query name="EntitySetDefault" >| &
-               | </sadl:query>| &
-               | <sadl:attribute name="LASTRECORDSNUMBER" binding="LASTRECORDSNUMBER" isOutput="TRUE" isKey="FALSE" />| &
-               | <sadl:attribute name="LASTSUCSTART" binding="LASTSUCSTART" isOutput="TRUE" isKey="FALSE" />| &
-               | <sadl:attribute name="LASTSUCSTOP" binding="LASTSUCSTOP" isOutput="TRUE" isKey="FALSE" />| &
-               | <sadl:attribute name="BESTPRACTICE" binding="BESTPRACTICE" isOutput="TRUE" isKey="FALSE" />| &
-               | <sadl:attribute name="SYSTEMROLE" binding="SYSTEMROLE" isOutput="TRUE" isKey="FALSE" />| &
-               | <sadl:attribute name="EXTRACTORNAME" binding="EXTRACTORNAME" isOutput="TRUE" isKey="TRUE" />| &
-               | <sadl:attribute name="EXTRACTORID" binding="EXTRACTORID" isOutput="TRUE" isKey="FALSE" />| &
-               | <sadl:attribute name="EXTRACTORSTATUS" binding="EXTRACTORSTATUS" isOutput="TRUE" isKey="FALSE" />| &
-               | <sadl:attribute name="RETURNCODE" binding="RETURNCODE" isOutput="TRUE" isKey="FALSE" />| &
-               | <sadl:attribute name="LASTSTART" binding="LASTSTART" isOutput="TRUE" isKey="FALSE" />| &
-               | <sadl:attribute name="LASTSTOP" binding="LASTSTOP" isOutput="TRUE" isKey="FALSE" />| .
+               | <sadl:attribute name="NAME" binding="NAME" isOutput="TRUE" isKey="FALSE" />| .
     lv_sadl_xml = |{ lv_sadl_xml }| &
-             | <sadl:attribute name="LASTRUNTIME" binding="LASTRUNTIME" isOutput="TRUE" isKey="FALSE" />| &
-             | <sadl:attribute name="SYSTEMID" binding="SYSTEMID" isOutput="TRUE" isKey="TRUE" />| &
+             | <sadl:attribute name="DELTA" binding="DELTA" isOutput="TRUE" isKey="FALSE" />| &
+             | <sadl:attribute name="TIME" binding="TIME" isOutput="TRUE" isKey="TRUE" />| &
+             | <sadl:attribute name="PHASE" binding="PHASE" isOutput="TRUE" isKey="TRUE" />| &
+             | <sadl:attribute name="LOGSTATUS" binding="LOGSTATUS" isOutput="TRUE" isKey="FALSE" />| &
+             | <sadl:attribute name="WLIID" binding="WLIID" isOutput="TRUE" isKey="TRUE" />| &
+             | <sadl:attribute name="RETURNCODE" binding="RETURNCODE" isOutput="TRUE" isKey="FALSE" />| &
+             | <sadl:attribute name="MESSAGE" binding="MESSAGE" isOutput="TRUE" isKey="FALSE" />| &
              |</sadl:structure>| &
-             |<sadl:structure name="COLLECTORSet" dataSource="COLLECTORSet" maxEditMode="RO" >| &
+             |<sadl:structure name="EXTRACTORSet" dataSource="EXTRACTORSet" maxEditMode="RO" >| &
              | <sadl:query name="EntitySetDefault" >| &
              | </sadl:query>| &
-             | <sadl:attribute name="COLLECTORID" binding="COLLECTORID" isOutput="TRUE" isKey="TRUE" />| &
-             | <sadl:attribute name="COLLECTORNAME" binding="COLLECTORNAME" isOutput="TRUE" isKey="FALSE" />| &
-             | <sadl:attribute name="COLLECTORSTATUS" binding="COLLECTORSTATUS" isOutput="TRUE" isKey="FALSE" />| &
-             | <sadl:attribute name="RETURNCODE" binding="RETURNCODE" isOutput="TRUE" isKey="FALSE" />| &
-             | <sadl:attribute name="COLLECTORPROGRESS" binding="COLLECTORPROGRESS" isOutput="TRUE" isKey="FALSE" />| &
-             | <sadl:attribute name="TIMESTART" binding="TIMESTART" isOutput="TRUE" isKey="FALSE" />| &
-             | <sadl:attribute name="TIMEEND" binding="TIMEEND" isOutput="TRUE" isKey="FALSE" />| &
-             | <sadl:attribute name="SYSTEMID" binding="SYSTEMID" isOutput="TRUE" isKey="TRUE" />| &
+             | <sadl:attribute name="LASTSUCSTOP" binding="LASTSUCSTOP" isOutput="TRUE" isKey="FALSE" />| &
              | <sadl:attribute name="BESTPRACTICE" binding="BESTPRACTICE" isOutput="TRUE" isKey="FALSE" />| &
              | <sadl:attribute name="SYSTEMROLE" binding="SYSTEMROLE" isOutput="TRUE" isKey="FALSE" />| &
+             | <sadl:attribute name="EXTRACTORNAME" binding="EXTRACTORNAME" isOutput="TRUE" isKey="TRUE" />| &
+             | <sadl:attribute name="EXTRACTORID" binding="EXTRACTORID" isOutput="TRUE" isKey="FALSE" />| &
+             | <sadl:attribute name="EXTRACTORSTATUS" binding="EXTRACTORSTATUS" isOutput="TRUE" isKey="FALSE" />| &
+             | <sadl:attribute name="RETURNCODE" binding="RETURNCODE" isOutput="TRUE" isKey="FALSE" />| &
+             | <sadl:attribute name="LASTSTART" binding="LASTSTART" isOutput="TRUE" isKey="FALSE" />| &
+             | <sadl:attribute name="LASTSTOP" binding="LASTSTOP" isOutput="TRUE" isKey="FALSE" />| &
+             | <sadl:attribute name="LASTRUNTIME" binding="LASTRUNTIME" isOutput="TRUE" isKey="FALSE" />| &
+             | <sadl:attribute name="SYSTEMID" binding="SYSTEMID" isOutput="TRUE" isKey="TRUE" />| &
+             | <sadl:attribute name="LASTRECORDSNUMBER" binding="LASTRECORDSNUMBER" isOutput="TRUE" isKey="FALSE" />| &
+             | <sadl:attribute name="LASTSUCSTART" binding="LASTSUCSTART" isOutput="TRUE" isKey="FALSE" />| &
              |</sadl:structure>| &
              |</sadl:resultSet>| &
              |</sadl:definition>| .
     ro_dpc = cl_sadl_gw_dpc_factory=>create_for_sadl( iv_sadl_xml   = lv_sadl_xml
-               iv_timestamp         = '20181224084623'
+               iv_timestamp         = '20190709092953'
                iv_uuid              = 'ZCCLM_ODATA_CM'
                io_query_control     = me
                io_extension_control = me
@@ -3725,6 +3932,38 @@ lo_logger = /iwbep/if_mgw_conv_srv_runtime~get_logger( ).
     EXPORTING
       textid = /iwbep/cx_mgw_not_impl_exc=>method_not_implemented
       method = 'SOLMAN_NOTESET_UPDATE_ENTITY'.
+  endmethod.
+
+
+  method SYSTEM_KPISET_CREATE_ENTITY.
+    if_sadl_gw_dpc_util~get_dpc( )->create_entity( EXPORTING io_data_provider        = io_data_provider
+                                                             io_tech_request_context = io_tech_request_context
+                                                   IMPORTING es_data                 = er_entity ).
+  endmethod.
+
+
+  method SYSTEM_KPISET_DELETE_ENTITY.
+    if_sadl_gw_dpc_util~get_dpc( )->delete_entity( io_tech_request_context ).
+  endmethod.
+
+
+  method SYSTEM_KPISET_GET_ENTITY.
+    if_sadl_gw_dpc_util~get_dpc( )->get_entity( EXPORTING io_tech_request_context = io_tech_request_context
+                                                IMPORTING es_data                 = er_entity ).
+  endmethod.
+
+
+  method SYSTEM_KPISET_GET_ENTITYSET.
+    if_sadl_gw_dpc_util~get_dpc( )->get_entityset( EXPORTING io_tech_request_context = io_tech_request_context
+                                                   IMPORTING et_data                 = et_entityset
+                                                             es_response_context     = es_response_context ).
+  endmethod.
+
+
+  method SYSTEM_KPISET_UPDATE_ENTITY.
+    if_sadl_gw_dpc_util~get_dpc( )->update_entity( EXPORTING io_tech_request_context = io_tech_request_context
+                                                             io_data_provider        = io_data_provider
+                                                   IMPORTING es_data                 = er_entity ).
   endmethod.
 
 
