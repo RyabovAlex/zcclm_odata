@@ -1136,7 +1136,7 @@ CLASS ZCL_ZCCLM_ODATA_CM_DPC_EXT IMPLEMENTATION.
            lv_tmp = 0.
          ENDIF.
         ELSEIF ls_temp-best_practice = 1.
-          lv_tmp = 0.
+          lv_tmp = 1.
         ELSE.
           lv_tmp = 2.
         ENDIF.
