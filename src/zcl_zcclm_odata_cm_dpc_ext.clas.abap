@@ -44,7 +44,7 @@ private section.
   class-methods GET_SYSTEM_STATUS
     importing
       !SYS_ID type SYSTEM_ID
-      !LN_ID type SYSTEM_ID
+      !LN_ID type char100
       !UPDATE type BOOLEAN
     exporting
       !ER_ENTITY type ZCL_ZCCLM_ODATA_CM_MPC=>TS_SYSTEM_STATUS .
@@ -592,7 +592,7 @@ CLASS ZCL_ZCCLM_ODATA_CM_DPC_EXT IMPLEMENTATION.
         WHERE ( collector_id = 'CUST' OR collector_id = 'ENHS' OR collector_id = 'MODS' ) AND
               system_role = role.
 
-      IF lv_extc = 6 AND lv_colc = 3.
+      IF lv_extc = 5 AND lv_colc = 3. "available Extractors should be for specific release dependent
         <fs> = 'X'.
       ELSE.
         <fs> = ''.
@@ -833,7 +833,7 @@ CLASS ZCL_ZCCLM_ODATA_CM_DPC_EXT IMPLEMENTATION.
                                  ( system_role = role extractor_name = 'AGS_CC_OBJ_MOD_EXTRACTOR' )
                                  ( system_role = role extractor_name = 'AGS_CC_OBJ_ENH_EXTRACTOR' )
                                  ( system_role = role extractor_name = 'AGS_CC_OBJ_DELOBJ_EXTRACTOR' )
-                                 ( system_role = role extractor_name = 'AGS_CC_OBJ_NAMESPACE_EXTRACTOR' )
+"                                 ( system_role = role extractor_name = 'AGS_CC_OBJ_NAMESPACE_EXTRACTOR' )
                                  ( system_role = role extractor_name = 'AGS_CC_OBJ_CORE_EXTRACTOR' ) ).
               lt_srtc = VALUE #( ( system_role = role collector_id = 'CUST' )
                                  ( system_role = role collector_id = 'MODS' )
@@ -937,6 +937,7 @@ CLASS ZCL_ZCCLM_ODATA_CM_DPC_EXT IMPLEMENTATION.
               role = ls_comp-name.
               lt_srte = VALUE #( ( system_role = role extractor_name = 'AGS_CC_EXTRACT_CCITY' )
                                  ( system_role = role extractor_name = 'AGS_CC_CCLM_EXTRACT' )
+                                 ( system_role = role extractor_name = 'AGS_CC_EXTRACT_SYSTEM_ATTRIBS' )
                                  ( system_role = role extractor_name = 'E2E_ICIDB_EXT_CCLM' ) ).
               IF <fs> = 'X'.
                 INSERT zagsccl_srte FROM TABLE @lt_srte ACCEPTING DUPLICATE KEYS.
@@ -944,7 +945,8 @@ CLASS ZCL_ZCCLM_ODATA_CM_DPC_EXT IMPLEMENTATION.
                 DELETE FROM zagsccl_srte WHERE system_role = role AND
                                               ( extractor_name = 'AGS_CC_EXTRACT_CCITY' OR
                                                 extractor_name = 'AGS_CC_CCLM_EXTRACT' OR
-                                                extractor_name = 'E2E_ICIDB_EXT_CCLM' ).
+                                                extractor_name = 'E2E_ICIDB_EXT_CCLM' OR
+                                                extractor_name = 'AGS_CC_EXTRACT_SYSTEM_ATTRIBS').
               ENDIF.
             ENDLOOP.
           ELSEIF lv_scn = 'Criticality'.
@@ -1393,7 +1395,7 @@ CLASS ZCL_ZCCLM_ODATA_CM_DPC_EXT IMPLEMENTATION.
     CALL METHOD get_system_status
       EXPORTING
         sys_id    = CONV system_id( ls_sys-value )
-        ln_id     = CONV system_id( ls_ln-value )
+        ln_id     = CONV char100( ls_ln-value )
         update    = 'X'
       IMPORTING
         er_entity = er_entity.
@@ -1438,13 +1440,19 @@ CLASS ZCL_ZCCLM_ODATA_CM_DPC_EXT IMPLEMENTATION.
         INTO TABLE @DATA(lt_systems).
 
     LOOP AT lt_systems INTO DATA(ls_system).
-      CALL METHOD get_system_status
-        EXPORTING
-          sys_id    = ls_system-sys_id   " Name of SAP System
-          ln_id     = ls_system-lnscp_id   " Name of SAP System
-          update    = 'X'
-        IMPORTING
-          er_entity = DATA(temp).
+      TRY.
+          CALL METHOD get_system_status
+            EXPORTING
+              sys_id    = ls_system-sys_id   " Name of SAP System
+              ln_id     = ls_system-lnscp_id   " Name of SAP System
+              update    = 'X'
+            IMPORTING
+              er_entity = DATA(temp).
+        CATCH cx_ags_cc_upl_extractor_error.
+          CONCATENATE 'RFC for System ' ls_system-sys_id ' is not available' into data(msg).
+          write: msg.
+          continue.
+      ENDTRY.
 
       IF temp-note_status > 0 OR temp-job_status > 0 OR temp-extractor_status > 0 OR temp-collector_status > 0.
         SELECT *
@@ -1493,9 +1501,9 @@ CLASS ZCL_ZCCLM_ODATA_CM_DPC_EXT IMPLEMENTATION.
 
         "Email BODY
         CONCATENATE 'CCLM Consistency Monitor indicated one or more landscapes with failures in CCLM configuration.'
-                    CL_ABAP_CHAR_UTILITIES=>NEWLINE
+                    cl_abap_char_utilities=>newline
                     'Please refer to Consistency Monitor for validation.'
-                    CL_ABAP_CHAR_UTILITIES=>NEWLINE
+                    cl_abap_char_utilities=>newline
                     'To unsubscribe from emails adjust email list in Virtual Landscapes Cockpit' INTO DATA(lv_temp_text).
         APPEND lv_temp_text TO gv_text.
         gr_document = cl_document_bcs=>create_document(

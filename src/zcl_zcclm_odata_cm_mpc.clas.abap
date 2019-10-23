@@ -1370,9 +1370,10 @@ lo_entity_type = model->create_entity_type( iv_entity_type_name = 'LANDSCAPE_STA
 ***********************************************************************************************************************************
 
 lo_property = lo_entity_type->create_property( iv_property_name = 'LandscapeId' iv_abap_fieldname = 'LANDSCAPE_ID' ). "#EC NOTEXT
+lo_property->set_label_from_text_element( iv_text_element_symbol = '056' iv_text_element_container = gc_incl_name ).  "#EC NOTEXT
 lo_property->set_is_key( ).
 lo_property->set_type_edm_string( ).
-lo_property->set_maxlength( iv_max_length = 8 ). "#EC NOTEXT
+lo_property->set_maxlength( iv_max_length = 100 ). "#EC NOTEXT
 lo_property->set_creatable( abap_false ).
 lo_property->set_updatable( abap_false ).
 lo_property->set_sortable( abap_false ).
@@ -2134,9 +2135,10 @@ lo_entity_type = model->create_entity_type( iv_entity_type_name = 'SYSTEM_STATUS
 ***********************************************************************************************************************************
 
 lo_property = lo_entity_type->create_property( iv_property_name = 'Landscapeid' iv_abap_fieldname = 'LANDSCAPE_ID' ). "#EC NOTEXT
+lo_property->set_label_from_text_element( iv_text_element_symbol = '057' iv_text_element_container = gc_incl_name ).  "#EC NOTEXT
 lo_property->set_is_key( ).
 lo_property->set_type_edm_string( ).
-lo_property->set_maxlength( iv_max_length = 8 ). "#EC NOTEXT
+lo_property->set_maxlength( iv_max_length = 100 ). "#EC NOTEXT
 lo_property->set_creatable( abap_false ).
 lo_property->set_updatable( abap_false ).
 lo_property->set_sortable( abap_false ).
@@ -2276,7 +2278,7 @@ lo_entity_set->set_filter_required( abap_false ).
 *&---------------------------------------------------------------------*
 
 
-  CONSTANTS: lc_gen_date_time TYPE timestamp VALUE '20190709092957'.                  "#EC NOTEXT
+  CONSTANTS: lc_gen_date_time TYPE timestamp VALUE '20191022222115'.                  "#EC NOTEXT
   rv_last_modified = super->get_last_modified( ).
   IF rv_last_modified LT lc_gen_date_time.
     rv_last_modified = lc_gen_date_time.
@@ -2394,6 +2396,13 @@ APPEND ls_text_element TO rt_text_elements.
 
 
 clear ls_text_element.
+ls_text_element-artifact_name          = 'LandscapeId'.                 "#EC NOTEXT
+ls_text_element-artifact_type          = 'PROP'.                                       "#EC NOTEXT
+ls_text_element-parent_artifact_name   = 'LANDSCAPE_STATUS'.                            "#EC NOTEXT
+ls_text_element-parent_artifact_type   = 'ETYP'.                                       "#EC NOTEXT
+ls_text_element-text_symbol            = '056'.              "#EC NOTEXT
+APPEND ls_text_element TO rt_text_elements.
+clear ls_text_element.
 ls_text_element-artifact_name          = 'JobStatus'.                 "#EC NOTEXT
 ls_text_element-artifact_type          = 'PROP'.                                       "#EC NOTEXT
 ls_text_element-parent_artifact_name   = 'LANDSCAPE_STATUS'.                            "#EC NOTEXT
@@ -2483,6 +2492,13 @@ ls_text_element-text_symbol            = '008'.              "#EC NOTEXT
 APPEND ls_text_element TO rt_text_elements.
 
 
+clear ls_text_element.
+ls_text_element-artifact_name          = 'Landscapeid'.                 "#EC NOTEXT
+ls_text_element-artifact_type          = 'PROP'.                                       "#EC NOTEXT
+ls_text_element-parent_artifact_name   = 'SYSTEM_STATUS'.                            "#EC NOTEXT
+ls_text_element-parent_artifact_type   = 'ETYP'.                                       "#EC NOTEXT
+ls_text_element-text_symbol            = '057'.              "#EC NOTEXT
+APPEND ls_text_element TO rt_text_elements.
 clear ls_text_element.
 ls_text_element-artifact_name          = 'SystemRole'.                 "#EC NOTEXT
 ls_text_element-artifact_type          = 'PROP'.                                       "#EC NOTEXT
